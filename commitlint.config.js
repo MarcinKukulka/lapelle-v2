@@ -7,6 +7,7 @@ module.exports = {
         [ // Allowed actions to use. Add your own if needed.
           `build`,
           `chore`,
+          `update`,
           `ci`,
           `docs`,
           `feat`,
