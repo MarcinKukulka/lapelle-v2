@@ -4,6 +4,7 @@
 
 echo "Runnig linting and fix..."
 
+npx lint-staged
 pnpm run lint:fix
 
 git add .
