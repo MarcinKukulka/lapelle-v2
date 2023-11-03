@@ -8,6 +8,9 @@ pnpm-lock.yaml
 # testing
 /coverage
 
+# eslintache
+.eslintcache
+
 # next.js
 /.next/
 /out/
