@@ -7,7 +7,7 @@
 	"extends": [
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
-		// "plugin:import/recommended",
+		"plugin:import/recommended",
 		"plugin:import/typescript",
 		"prettier",
 		"next/core-web-vitals"
@@ -19,8 +19,10 @@
 		// no let exports
 		"import/no-mutable-exports": "error",
 
+		"import/no-unresolved": "off", // handled by TS
+
 		"import/no-cycle": "error",
-		// "import/no-default-export": "warn",
+		"import/no-default-export": "warn",
 		"no-restricted-imports": [
 			"error",
 			{

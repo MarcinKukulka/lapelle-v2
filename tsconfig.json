@@ -15,13 +15,14 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
+		"baseUrl": "./",
 		"plugins": [
 			{
 				"name": "next"
 			}
 		],
 		"paths": {
-			"*": ["./node_modules/*", "./node_modules/@types/*", "./*"],
+			// "*": ["./node_modules/*", "./node_modules/@types/*", "./*"],
 			"@/*": ["./src/*"],
 			"@/components/*": ["./src/components/*"],
 			"@/ui/*": ["./src/components/ui/*"],
