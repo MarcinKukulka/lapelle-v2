@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+const config: Config = {
 	darkMode: ['class'],
 	content: [
 		'./pages/**/*.{ts,tsx}',
@@ -20,7 +21,6 @@ module.exports = {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -51,7 +51,7 @@ module.exports = {
 					foreground: 'hsl(var(--card-foreground))',
 				},
 				gold: '#F0D164',
-				background:'#E5E5E5'
+				background: '#E5E5E5',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -60,12 +60,12 @@ module.exports = {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: { height: 0 },
+					from: { height: "0" },
 					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
 					from: { height: 'var(--radix-accordion-content-height)' },
-					to: { height: 0 },
+					to: { height: "0" },
 				},
 			},
 			animation: {
@@ -76,3 +76,5 @@ module.exports = {
 	},
 	plugins: [require('tailwindcss-animate')],
 };
+
+export default config;
