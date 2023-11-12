@@ -34,21 +34,25 @@ export const Navbar = () => {
 		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 	}, [isOpen]);
 
+	const handleOpenNav = () => {
+		setIsOpen((prev) => !prev);
+	};
+
 	return (
 		<NavigationMenu className="sticky top-0 flex  min-w-full flex-col items-stretch  overflow-hidden whitespace-nowrap text-xl font-bold uppercase text-gold md:h-20 md:flex-row md:items-center md:justify-between md:bg-black xl:px-12 2xl:px-32">
 			<NavigationMenuList className=" flex items-center justify-between bg-black p-4 ">
 				<NavigationMenuItem>
 					<Link href={routes[0].path}>
-						<Image className="h-16 w-32" src={Logo} alt="Logo La Pelle" />
+						<Image
+							className="h-16 w-32"
+							onClick={() => setIsOpen(false)}
+							src={Logo}
+							alt="Logo La Pelle"
+						/>
 					</Link>
 				</NavigationMenuItem>
 				<NavigationMenuItem className="md:hidden">
-					<HamburgerMenu
-						isOpen={isOpen}
-						onClick={() => {
-							setIsOpen((prev) => !prev);
-						}}
-					/>
+					<HamburgerMenu isOpen={isOpen} onClick={handleOpenNav} />
 				</NavigationMenuItem>
 			</NavigationMenuList>
 			<NavigationMenuList
@@ -63,6 +67,7 @@ export const Navbar = () => {
 							<Link
 								className="after:block after:scale-0 after:border-b-2 after:border-gold after:pb-1 after:transition-transform after:duration-300 after:hover:scale-100"
 								href={path}
+								onClick={handleOpenNav}
 							>
 								{name}
 							</Link>

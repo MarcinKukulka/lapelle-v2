@@ -27,7 +27,7 @@
 			"@/components/*": ["./src/components/*"],
 			"@/ui/*": ["./src/components/ui/*"],
 			"@/api/*": ["./src/app/api/*"],
-			"@/assets/*": ["/public/assets/*"]
+			"@/assets/*": ["./public/assets/*"]
 		}
 	},
 	"include": [
