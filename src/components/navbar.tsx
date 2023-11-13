@@ -40,7 +40,7 @@ export const Navbar = () => {
 
 	return (
 		<NavigationMenu className="sticky top-0 flex  min-w-full flex-col items-stretch  overflow-hidden whitespace-nowrap text-xl font-bold uppercase text-gold md:h-20 md:flex-row md:items-center md:justify-between md:bg-black xl:px-12 2xl:px-32">
-			<NavigationMenuList className=" flex items-center justify-between bg-black p-4 ">
+			<NavigationMenuList className="flex items-center justify-between bg-black p-4 ">
 				<NavigationMenuItem>
 					<Link href={routes[0].path}>
 						<Image
