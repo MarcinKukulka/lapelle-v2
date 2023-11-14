@@ -3,7 +3,7 @@ import { GoogleMap } from '@/components/google-map';
 
 export default function Home() {
 	return (
-		<main className="absolute top-20 flex flex-col">
+		<main>
 			<Carousel />
 			<GoogleMap />
 		</main>

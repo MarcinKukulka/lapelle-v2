@@ -57,13 +57,13 @@ export const Navbar = () => {
 			</NavigationMenuList>
 			<NavigationMenuList
 				className={cn(
-					' flex h-screen  flex-col justify-start gap-y-7 bg-black pt-24 transition-transform md:h-20 md:translate-x-0 md:flex-row md:items-center md:gap-x-2 md:pr-4 md:pt-1 lg:gap-x-4',
+					' fixed flex h-screen min-w-full flex-col justify-start gap-y-7 bg-black pt-24 transition-transform md:static md:top-0 md:h-20  md:translate-x-0 md:flex-row  md:gap-x-2 md:pr-4 md:pt-1 lg:gap-x-4',
 					isOpen ? 'translate-x-0' : 'translate-x-full',
 				)}
 			>
 				{routes.map(({ name, path }) => {
 					return (
-						<NavigationMenuItem className=" flex md:justify-center" key={name}>
+						<NavigationMenuItem className=" flex md:justify-between" key={name}>
 							<Link
 								className="after:block after:scale-0 after:border-b-2 after:border-gold after:pb-1 after:transition-transform after:duration-300 after:hover:scale-100"
 								href={path}
