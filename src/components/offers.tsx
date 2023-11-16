@@ -3,7 +3,7 @@ import {
 	AccordionContent,
 	AccordionTrigger,
 	AccordionItem,
-} from './ui/accordion';
+} from '@/ui/accordion';
 import { Heading } from '@/ui/heading';
 
 const OFFERS_ACCORDION = [
