@@ -25,17 +25,52 @@ export const Offers = () => {
 	return (
 		<section className="mx-auto max-w-screen-xl">
 			<Heading textColor="text-black" lineColor="border-black" text="Oferta" />
-			<div>
-				{OFFERS_ACCORDION.map(({ id, title, content }) => {
-					return (
-						<Accordion type="single" collapsible key={id}>
-							<AccordionItem value={title}>
-								<AccordionTrigger>{title}</AccordionTrigger>
-								<AccordionContent>{content}</AccordionContent>
-							</AccordionItem>
-						</Accordion>
-					);
-				})}
+			<div className="mt-10 flex w-full flex-col items-stretch px-12 md:flex-row md:justify-between md:gap-x-24">
+				<div className="gap-y-4 md:w-2/5">
+					<Accordion type="single" collapsible>
+						{OFFERS_ACCORDION.map(({ id, title, content }) => {
+							return (
+								<AccordionItem
+									key={id}
+									className="mb-3 border border-black/20 px-3 hover:bg-gold/60 data-[state=open]:bg-gold/40"
+									value={id.toString()}
+								>
+									<AccordionTrigger className="border font-semibold data-[state=open]:mb-3 data-[state=open]:border-b-black/30">
+										{title}
+									</AccordionTrigger>
+									<AccordionContent>{content}</AccordionContent>
+								</AccordionItem>
+							);
+						})}
+					</Accordion>
+				</div>
+				<div className="md:w-3/5">
+					<h1>Salon kosmetyczny La Pelle</h1>
+					<p>
+						W ofercie gabinetu kosmetologicznego La Pelle Nowoczesna
+						Kosmetologia Agnieszka Trylińska znajdziesz zabiegi poprawiające
+						wygląd skóry oraz terapie likwidujące takie defekty jak zaskórniki,
+						trądzik, przebarwienia, zmarszczki, blizny, rozstępy, cellulit czy
+						wypadające włosy. Szeroki wybór zabiegów sprawia, że w La Pelle
+						wykonasz zarówno zabiegi podstawowe obejmujące stylizacje brwi i
+						rzęs, pielęgnacje stóp i dłoni jak również obecnie najbardziej
+						innowacyjne i zarazem najskuteczniejsze zabiegi na rynku
+						kosmetologicznym takie jak mezoterapia igłowa, mikroigłowa, lipoliza
+						iniekcyjna czy stymulatory tkankowe. Należy wspomnieć również o
+						szerokiej gamie terapii oczyszczająch oraz pielęgnacyjnych
+						wykorzystujących mikrodermabrazje, oxybrazje, peelingi chemiczne czy
+						mezoterapie bezigłową. Zabiegi wykonuje na skutecznych i
+						nowoczesnych urządzeniach, a wszystkie preparaty posiadają
+						certyfikaty medyczne. Wszystko to z myślą o Twoim zdrowiu i
+						bezpieczeństwie.
+					</p>
+					<p>
+						W La Pelle znajdziesz wszystko co najlepsze dla Twojej skóry!
+						Przyjdź już dziś i skorzystaj z darmowej konsultacji przeprowadzonej
+						przez wykwalifikowanego kosmetologa. Znajdziesz mnie w Tarnowie przy
+						ulicy Bema 12 , w salonie fryzjerskim Studio Retro.
+					</p>
+				</div>
 			</div>
 		</section>
 	);
