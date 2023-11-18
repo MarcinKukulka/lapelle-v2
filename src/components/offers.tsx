@@ -35,7 +35,7 @@ export const Offers = () => {
 									className="mb-3 border border-black/20 px-3 hover:bg-gold/60 data-[state=open]:bg-gold/40"
 									value={id.toString()}
 								>
-									<AccordionTrigger className="border font-semibold data-[state=open]:mb-3 data-[state=open]:border-b-black/30">
+									<AccordionTrigger className="font-semibold hover:no-underline data-[state=open]:mb-3 data-[state=open]:border-b data-[state=open]:border-b-black/30">
 										{title}
 									</AccordionTrigger>
 									<AccordionContent>{content}</AccordionContent>
@@ -45,8 +45,10 @@ export const Offers = () => {
 					</Accordion>
 				</div>
 				<div className="md:w-3/5">
-					<h1>Salon kosmetyczny La Pelle</h1>
-					<p>
+					<h1 className="mb-4 text-3xl font-bold text-gold">
+						Salon kosmetyczny La Pelle
+					</h1>
+					<p className="mb-4 ">
 						W ofercie gabinetu kosmetologicznego La Pelle Nowoczesna
 						Kosmetologia Agnieszka Trylińska znajdziesz zabiegi poprawiające
 						wygląd skóry oraz terapie likwidujące takie defekty jak zaskórniki,
@@ -66,9 +68,10 @@ export const Offers = () => {
 					</p>
 					<p>
 						W La Pelle znajdziesz wszystko co najlepsze dla Twojej skóry!
-						Przyjdź już dziś i skorzystaj z darmowej konsultacji przeprowadzonej
-						przez wykwalifikowanego kosmetologa. Znajdziesz mnie w Tarnowie przy
-						ulicy Bema 12 , w salonie fryzjerskim Studio Retro.
+						Przyjdź już dziś i skorzystaj z{' '}
+						<span className="font-semibold">darmowej konsultacji </span>
+						przeprowadzonej przez wykwalifikowanego kosmetologa. Znajdziesz mnie
+						w Tarnowie przy ulicy Bema 12 , w salonie fryzjerskim Studio Retro.
 					</p>
 				</div>
 			</div>
