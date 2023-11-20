@@ -1,4 +1,5 @@
 import { Carousel } from '@/components/carousel';
+import { Gallery } from '@/components/galllery';
 import { GoogleMap } from '@/components/google-map';
 import { Offers } from '@/components/offers';
 
@@ -7,6 +8,7 @@ export default function Home() {
 		<main>
 			<Carousel />
 			<Offers />
+			<Gallery />
 			<GoogleMap />
 		</main>
 	);
