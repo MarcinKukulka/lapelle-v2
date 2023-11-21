@@ -26,7 +26,7 @@ export const Gallery = () => {
 	return (
 		<section className="mx-auto my-8 max-w-screen-xl">
 			<Heading lineColor="border-black" text="Galeria" textColor="text-black" />
-			<div className="mt-8 grid grid-flow-row-dense grid-cols-1 justify-items-center gap-8 px-8 sm:grid-cols-2 lg:grid-cols-4">
+			<div className="mt-8 grid grid-cols-1 justify-items-center gap-8 px-8 sm:grid-cols-2 lg:grid-cols-4">
 				{IMAGES.map((image, index) => {
 					return (
 						<Image
