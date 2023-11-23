@@ -71,13 +71,13 @@ export const Carousel = () => {
 					onTouchMove={handleTouchMove}
 					onTouchEnd={handleTouchEnd}
 					ref={carouselRef}
-					className="scroll-snap-type-mandatory scrollsnap-x-mandatory flex  transition-transform duration-500 ease-in-out"
+					className="flex snap-x snap-mandatory transition-transform duration-500 ease-in-out"
 					style={{ transform: `translateX(-${currentSlide * 100}%)` }}
 				>
 					{carouselImages.map((image) => {
 						return (
 							<Image
-								className="scroll-snap-align-start max-h-[70vh] min-w-full object-cover"
+								className="max-h-[70vh] min-w-full snap-center snap-always object-cover"
 								src={image.image}
 								alt={image.alt}
 								key={image.alt}
