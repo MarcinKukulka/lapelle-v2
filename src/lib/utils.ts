@@ -6,13 +6,17 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export const readImagesFromGallery = (folderPath: string) => {
+export const readImagesFromGallery = (
+	folderPath: string,
+	src: string,
+	alt: string,
+) => {
 	const images = fs.readdirSync(folderPath);
 
 	const processedImages = images.map((image: string) => {
 		return {
-			src: `/../assets/gallery/${image}`,
-			alt: 'Zdjęcie z galerii',
+			src: `${src}/${image}`,
+			alt,
 		};
 	});
 

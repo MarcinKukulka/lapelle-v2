@@ -3,13 +3,15 @@ import { Heading } from '@/ui/heading';
 import { readImagesFromGallery } from '@/lib/utils';
 
 const imagesPath: string = 'src/assets/gallery';
+const src = '/../assets/gallery';
+const alt = 'Zdjęcie z galerii';
 
 type GalleryImages = {
 	src: string;
 	alt: string;
 };
 
-const images: GalleryImages[] = readImagesFromGallery(imagesPath);
+const images: GalleryImages[] = readImagesFromGallery(imagesPath, src, alt);
 
 export const Gallery = () => {
 	return (
