@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import carouselImage1 from '@/assets/carousel/dermobrazja.jpg';
 import carouselImage2 from '@/assets/carousel/header1.jpg';
 import carouselImage3 from '@/assets/carousel/voucher_podarunkowy.jpg';
@@ -16,6 +16,18 @@ export const Carousel = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [touchPosition, setTouchPosition] = useState<number | null>(null);
 	const carouselRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (currentSlide === carouselImages.length - 1) {
+				setCurrentSlide(0);
+			} else {
+				setCurrentSlide(currentSlide + 1);
+			}
+		}, 3000);
+
+		return () => clearInterval(interval);
+	}, [currentSlide]);
 
 	const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
 		if (e.touches && e.touches.length) {
