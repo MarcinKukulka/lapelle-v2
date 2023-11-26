@@ -1,3 +1,4 @@
+import { AboutMe } from '@/components/about-me';
 import { Carousel } from '@/components/carousel';
 import { Gallery } from '@/components/galllery';
 import { GoogleMap } from '@/components/google-map';
@@ -9,6 +10,7 @@ export default function Home() {
 			<Carousel />
 			<Offers />
 			<Gallery />
+			<AboutMe />
 			<GoogleMap />
 		</main>
 	);

@@ -18,7 +18,7 @@ export const Heading = ({ textColor, lineColor, text }: HeadingProps) => {
 			{HeadingLine}
 			<h2
 				className={cn(
-					`${playfair.className} px-8 text-4xl font-semibold`,
+					`${playfair.className} whitespace-nowrap px-8 text-4xl font-semibold`,
 					textColor,
 				)}
 			>
