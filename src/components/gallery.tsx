@@ -1,11 +1,12 @@
 'use client';
-import { type ReactNode } from 'react';
 import { Heading } from '@/ui/heading';
 import 'yet-another-react-lightbox/styles.css';
 import useLightbox from '@/hooks/useLightbox';
 import { SectionWrapper } from '@/ui/section-wrapper';
 import { ImagesContainer } from '@/ui/image-container';
-import { readImagesFromGallery } from '@/lib/utils';
+// import { readImagesFromGallery } from '@/lib/utils';
+
+const breakpoints = [4320, 2160, 1080, 640, 384, 256, 128];
 
 const unsplashLink = (id: string, width: number, height: number) =>
 	`https://source.unsplash.com/${id}/${width}x${height}`;
@@ -275,37 +276,33 @@ const slides = unsplashPhotos.map((photo) => {
 		src: unsplashLink(photo.id, width, height),
 		width,
 		height,
+		srcSet: breakpoints.map((breakpoint) => {
+			const breakpointHeight = Math.round((height / width) * breakpoint);
+			return {
+				src: unsplashLink(photo.id, breakpoint, breakpointHeight),
+				width: breakpoint,
+				height: breakpointHeight,
+			};
+		}),
 	};
 });
-type GalleryImages = {
-	src: string;
-	alt: string;
-	width: number;
-	height: number;
-};
-export async function getStaticProps() {
-	const imagesPath: string = 'src/assets/gallery';
-	const src = '/../assets/gallery';
 
-	const galleryImages: GalleryImages[] = readImagesFromGallery(imagesPath, src);
+// type GalleryImages = {
+// 	src: string;
+// 	alt: string;
+// 	width: number;
+// 	height: number;
+// };
 
-	return {
-		props: {
-			galleryImages,
-		},
-	};
-}
-
-export const Gallery = ({ children }: { children: ReactNode }) => {
+export const Gallery = () => {
 	const { openLightbox, renderLightbox } = useLightbox();
 	return (
 		<SectionWrapper>
 			<Heading lineColor="border-black" text="Galeria" textColor="text-black" />
 
-			{children}
-			<ImagesContainer galleryImages={[]} />
+			<ImagesContainer />
 			<button type="button" onClick={openLightbox}>
-				Open
+				Open Lightbox
 			</button>
 			{renderLightbox({ slides })}
 		</SectionWrapper>
