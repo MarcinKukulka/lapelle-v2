@@ -21,7 +21,7 @@ export const Gallery = () => {
 				{images.map(({ src, alt }, index) => {
 					return (
 						<Image
-							className="h-64 object-cover transition-transform duration-300 hover:scale-110"
+							className="h-64 rounded-md object-cover transition-transform duration-300 hover:scale-110"
 							width={400}
 							height={400}
 							src={src}
