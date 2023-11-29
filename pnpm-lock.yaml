@@ -35,6 +35,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.3.5)
+  yet-another-react-lightbox:
+    specifier: ^3.15.4
+    version: 3.15.4(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@commitlint/cli':
@@ -4522,6 +4525,17 @@ packages:
       y18n: 5.0.8
       yargs-parser: 21.1.1
     dev: true
+
+  /yet-another-react-lightbox@3.15.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-QiJc/l6LN6pFNm/O6mB2Kupj9XuvLDHUoex1Qb3H/66xJyQ1cL1FR8k206c+Yd1GOUB+oAmlNBF1SatCTe76IA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}

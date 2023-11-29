@@ -1,7 +1,7 @@
 import { AboutMe } from '@/components/about-me';
 import { Carousel } from '@/components/carousel';
 import { Contact } from '@/components/contact';
-import { Gallery } from '@/components/galllery';
+import { Gallery } from '@/components/gallery';
 import { GoogleMap } from '@/components/google-map';
 import { Offers } from '@/components/offers';
 
@@ -10,7 +10,7 @@ export default function Home() {
 		<main>
 			<Carousel />
 			<Offers />
-			<Gallery />
+			<Gallery></Gallery>
 			<AboutMe />
 			<Contact />
 			<GoogleMap />
