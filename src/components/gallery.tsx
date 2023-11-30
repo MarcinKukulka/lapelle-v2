@@ -1,10 +1,9 @@
 'use client';
+import { type ReactNode } from 'react';
 import { Heading } from '@/ui/heading';
 import 'yet-another-react-lightbox/styles.css';
 import useLightbox from '@/hooks/useLightbox';
 import { SectionWrapper } from '@/ui/section-wrapper';
-import { ImagesContainer } from '@/ui/image-container';
-// import { readImagesFromGallery } from '@/lib/utils';
 
 const breakpoints = [4320, 2160, 1080, 640, 384, 256, 128];
 
@@ -287,20 +286,13 @@ const slides = unsplashPhotos.map((photo) => {
 	};
 });
 
-// type GalleryImages = {
-// 	src: string;
-// 	alt: string;
-// 	width: number;
-// 	height: number;
-// };
-
-export const Gallery = () => {
+export const Gallery = ({ children }: { children: ReactNode }) => {
 	const { openLightbox, renderLightbox } = useLightbox();
 	return (
 		<SectionWrapper>
 			<Heading lineColor="border-black" text="Galeria" textColor="text-black" />
 
-			<ImagesContainer />
+			{children}
 			<button type="button" onClick={openLightbox}>
 				Open Lightbox
 			</button>
