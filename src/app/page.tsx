@@ -4,16 +4,13 @@ import { Contact } from '@/components/contact';
 import { Gallery } from '@/components/gallery';
 import { GoogleMap } from '@/components/google-map';
 import { Offers } from '@/components/offers';
-import { ImagesContainer } from '@/components/ui/image-container';
 
 export default function Home() {
 	return (
 		<main>
 			<Carousel />
 			<Offers />
-			<Gallery>
-				<ImagesContainer />
-			</Gallery>
+			<Gallery />
 			<AboutMe />
 			<Contact />
 			<GoogleMap />

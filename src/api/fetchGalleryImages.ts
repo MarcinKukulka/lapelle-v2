@@ -2,8 +2,7 @@ import { readImagesFromGallery } from '@/lib/utils';
 
 const imagesPath: string = 'src/assets/gallery';
 const src = '/../assets/gallery';
-
-type GalleryImages = {
+export type GalleryImages = {
 	src: string;
 	alt: string;
 	width: number;

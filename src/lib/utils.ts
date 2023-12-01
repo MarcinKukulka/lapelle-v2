@@ -1,4 +1,3 @@
-// import fs from 'fs';
 import fs from 'fs/promises';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -17,8 +16,8 @@ export const readImagesFromGallery = async (
 		return {
 			src: `${src}/${image}`,
 			alt: image.replace(/-/g, ' ').replace(/.jpg/g, ''),
-			width: 500,
-			height: 500,
+			width: 800,
+			height: 800,
 		};
 	});
 
