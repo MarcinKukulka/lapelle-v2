@@ -6,9 +6,11 @@ import { type GalleryImages } from '@/api/fetchGalleryImages';
 
 export const LightboxTrigger = ({
 	slides,
+	index,
 	children,
 }: {
 	slides: GalleryImages[];
+	index: number;
 	children: React.ReactNode;
 }) => {
 	const { openLightbox, renderLightbox } = useLightbox();
@@ -18,7 +20,7 @@ export const LightboxTrigger = ({
 			<button className="border-none" type="button" onClick={openLightbox}>
 				{children}
 			</button>
-			{renderLightbox({ slides })}
+			{renderLightbox({ slides, index })}
 		</>
 	);
 };
