@@ -1,9 +1,16 @@
-import { Heading } from './ui/heading';
+import { Heading } from '@/ui/heading';
+import { SectionWrapper } from '@/ui/section-wrapper';
 
 export const Contact = () => {
 	return (
 		<section className="bg-black">
-			<Heading lineColor="border-white" text="Kontakt" textColor="text-white" />
+			<SectionWrapper>
+				<Heading
+					lineColor="border-white"
+					text="Kontakt"
+					textColor="text-white"
+				/>
+			</SectionWrapper>
 		</section>
 	);
 };
