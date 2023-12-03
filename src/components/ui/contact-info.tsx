@@ -43,13 +43,13 @@ export const ContactInfo = () => {
 		<div className="px-8 md:w-1/2">
 			<Image
 				className="object-contain"
-				width={500}
-				height={500}
+				width={450}
+				height={450}
 				src={ContactLogo}
 				alt="Logo salonu"
 			/>
 
-			<ul className="flex flex-col gap-y-4 py-12">
+			<ul className="flex flex-col gap-y-4 py-12 text-sm md:text-base">
 				{CONTACT_CONTEXT.map(({ href, icon, text }) => {
 					return (
 						<li key={text}>
