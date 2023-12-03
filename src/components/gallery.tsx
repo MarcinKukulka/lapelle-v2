@@ -5,9 +5,9 @@ import { SectionWrapper } from '@/ui/section-wrapper';
 import { fetchGalleryImages } from '@/api/fetchGalleryImages';
 import { ImagesContainer } from '@/components/ui/images-container';
 
-export const Gallery = async () => {
-	const galleryImages = await fetchGalleryImages();
+const galleryImages = await fetchGalleryImages();
 
+export const Gallery = () => {
 	return (
 		<section className="pb-12">
 			<SectionWrapper>
