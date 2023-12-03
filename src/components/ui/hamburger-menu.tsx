@@ -9,7 +9,6 @@ export const HamburgerMenu = ({ isOpen, ...props }: HamburgerMenuProps) => {
 	return (
 		<button
 			className="flex h-12 w-12 flex-col items-center justify-center"
-			// onClick={onClick}
 			{...props}
 		>
 			<div
