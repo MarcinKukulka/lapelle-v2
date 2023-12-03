@@ -8,8 +8,6 @@ export const SectionWrapper = ({
 	className?: string;
 }) => {
 	return (
-		<div className={`mx-auto my-8 max-w-screen-xl ${className}`}>
-			{children}
-		</div>
+		<div className={`mx-auto max-w-screen-xl ${className}`}>{children}</div>
 	);
 };

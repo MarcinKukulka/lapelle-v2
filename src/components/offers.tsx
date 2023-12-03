@@ -24,7 +24,7 @@ const OFFERS_ACCORDION = [
 
 export const Offers = () => {
 	return (
-		<section className=" bg-white py-8">
+		<section className=" bg-white py-12">
 			<SectionWrapper>
 				<div className="mx-auto max-w-screen-xl">
 					<Heading

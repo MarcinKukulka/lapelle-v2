@@ -10,6 +10,10 @@ export const Contact = () => {
 					text="Kontakt"
 					textColor="text-white"
 				/>
+				<div>
+					<div></div>
+					<div></div>
+				</div>
 			</SectionWrapper>
 		</section>
 	);

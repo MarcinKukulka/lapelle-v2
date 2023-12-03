@@ -8,7 +8,7 @@ export const Gallery = async () => {
 	const galleryImages = await fetchGalleryImages();
 
 	return (
-		<section>
+		<section className="pb-12">
 			<SectionWrapper>
 				<Heading
 					lineColor="border-black"

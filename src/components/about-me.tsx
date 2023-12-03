@@ -5,7 +5,7 @@ import AgnieszkaImg from '@/assets/about_me.jpg';
 
 export const AboutMe = () => {
 	return (
-		<section className="bg-white">
+		<section className="bg-white pt-4">
 			<SectionWrapper>
 				<Heading
 					lineColor="border-black"
