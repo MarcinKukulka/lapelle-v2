@@ -1,7 +1,7 @@
 import { readImagesFromGallery } from '@/lib/utils';
 
-const imagesPath: string = 'src/assets/gallery';
-const src = '/../assets/gallery';
+const imagesPath: string = 'public/assets/gallery';
+const src = '/assets/gallery';
 export type GalleryImages = {
 	src: string;
 	alt: string;
