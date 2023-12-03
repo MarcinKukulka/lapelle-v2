@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Heading } from '@/ui/heading';
 
 import { SectionWrapper } from '@/ui/section-wrapper';
@@ -15,7 +16,9 @@ export const Gallery = async () => {
 					text="Galeria"
 					textColor="text-black"
 				/>
-				<ImagesContainer galleryImages={galleryImages} />
+				<Suspense fallback={<div>Loading...</div>}>
+					<ImagesContainer galleryImages={galleryImages} />
+				</Suspense>
 			</SectionWrapper>
 		</section>
 	);
