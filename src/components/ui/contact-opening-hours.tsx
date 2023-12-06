@@ -10,7 +10,7 @@ const OPENING_HOURS = [
 
 export const ContactOpeningHours = () => {
 	return (
-		<div className="mx-5 mb-10 h-5/6 border-2 border-gold p-5 align-middle text-white md:m-0 md:w-5/12 md:p-10">
+		<div className="mx-5 mb-10 mt-10 h-5/6 border-2 border-gold p-5 text-white md:w-5/12 md:p-10">
 			<h2 className="mb-8 text-center text-2xl font-bold">Godziny otwarcia</h2>
 
 			{OPENING_HOURS.map(({ day, hours }) => {
