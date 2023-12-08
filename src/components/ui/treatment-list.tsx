@@ -10,9 +10,13 @@ export const TreatmentList = () => {
 	return (
 		<div className=" fixed mt-8 max-w-xs bg-gold p-6">
 			<h2 className="text-2xl font-bold">Zabiegi</h2>
-			<ul className="mt-4 list-inside list-disc">
+			<ul className="mt-4 list-inside list-[circle]">
 				{TREATMENTS.map(({ name, id }) => {
-					return <li key={id}>{name}</li>;
+					return (
+						<li className="p-1" key={id}>
+							{name}
+						</li>
+					);
 				})}
 			</ul>
 		</div>
