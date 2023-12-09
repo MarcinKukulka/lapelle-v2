@@ -24,7 +24,10 @@ const routes: RoutesProps[] = [
 	{ name: 'Cennik', path: '/cennik' },
 	{ name: 'Kontakt', path: '/kontakt' },
 	{ name: 'O nas', path: '/o-nas' },
-	{ name: 'Galeria', path: '/galeria' },
+	{
+		name: 'Rezerwacja',
+		path: 'https://booksy.com/pl-pl/112144_la-pelle-nowoczesna-kosmetologia-agnieszka-trylinska_salon-kosmetyczny_10272_tarnow',
+	},
 ];
 
 export const Navbar = () => {
@@ -68,6 +71,7 @@ export const Navbar = () => {
 								className="after:block after:scale-0 after:border-b-2 after:border-gold after:pb-1 after:transition-transform after:duration-300 after:hover:scale-100"
 								href={path}
 								onClick={handleOpenNav}
+								target={name === 'Rezerwacja' ? '_blank' : ''}
 							>
 								{name}
 							</Link>
