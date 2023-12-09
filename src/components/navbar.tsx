@@ -38,6 +38,10 @@ export const Navbar = () => {
 	}, [isOpen]);
 
 	const handleOpenNav = () => {
+		setIsOpen(false);
+	};
+
+	const handleHamburgerClick = () => {
 		setIsOpen((prev) => !prev);
 	};
 
@@ -48,14 +52,14 @@ export const Navbar = () => {
 					<Link href={routes[0].path}>
 						<Image
 							className="h-16 w-32"
-							onClick={() => setIsOpen(false)}
+							onClick={handleOpenNav}
 							src={Logo}
 							alt="Logo La Pelle"
 						/>
 					</Link>
 				</NavigationMenuItem>
 				<NavigationMenuItem className="md:hidden">
-					<HamburgerMenu isOpen={isOpen} onClick={handleOpenNav} />
+					<HamburgerMenu isOpen={isOpen} onClick={handleHamburgerClick} />
 				</NavigationMenuItem>
 			</NavigationMenuList>
 			<NavigationMenuList
