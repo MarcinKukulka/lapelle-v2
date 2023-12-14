@@ -1,0 +1,9 @@
+query TreatmentsGetList {
+	treatments {
+		id
+		title
+		treatmentContent {
+			html
+		}
+	}
+}
