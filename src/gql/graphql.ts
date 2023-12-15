@@ -3452,12 +3452,10 @@ export type _SystemDateTimeFieldVariation =
 export type TreatmentsGetListQueryVariables = Exact<{ [key: string]: never }>;
 
 export type TreatmentsGetListQuery = {
-	treatments: Array<{
-		id: string;
-		title?: string | null;
-		treatmentContent?: { html: string } | null;
-	}>;
+	treatments: Array<{ id: string; title?: string | null }>;
 };
+
+export type TreatmentFragment = { id: string; title?: string | null };
 
 export class TypedDocumentString<TResult, TVariables>
 	extends String
@@ -3476,18 +3474,25 @@ export class TypedDocumentString<TResult, TVariables>
 		return this.value;
 	}
 }
-
+export const TreatmentFragmentDoc = new TypedDocumentString(
+	`
+    fragment Treatment on Treatment {
+  id
+  title
+}
+    `,
+	{ fragmentName: 'Treatment' },
+) as unknown as TypedDocumentString<TreatmentFragment, unknown>;
 export const TreatmentsGetListDocument = new TypedDocumentString(`
     query TreatmentsGetList {
   treatments {
-    id
-    title
-    treatmentContent {
-      html
-    }
+    ...Treatment
   }
 }
-    `) as unknown as TypedDocumentString<
+    fragment Treatment on Treatment {
+  id
+  title
+}`) as unknown as TypedDocumentString<
 	TreatmentsGetListQuery,
 	TreatmentsGetListQueryVariables
 >;

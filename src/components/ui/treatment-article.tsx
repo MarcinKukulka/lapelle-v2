@@ -1,6 +1,6 @@
 export const TreatmentArticle = () => {
 	return (
-		<article className="ml-10 mt-14 flex min-h-screen w-full flex-col">
+		<article className="mt-14 flex min-h-screen w-full flex-col sm:ml-10">
 			<h1>Oxybrazja</h1>
 			<p>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam

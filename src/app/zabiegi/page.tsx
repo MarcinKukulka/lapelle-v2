@@ -9,12 +9,10 @@ export default async function Zabiegi() {
 	if (!treatments) {
 		notFound();
 	}
-	console.log(treatments);
 
 	return (
-		<div className="mx-auto flex max-w-screen-xl">
-			<pre>{JSON.stringify(treatments, null, 2)}</pre>
-			<TreatmentList />
+		<div className="mx-auto flex max-w-screen-xl flex-col px-10 sm:flex-row">
+			<TreatmentList treatmentsTitle={treatments} />
 			<TreatmentArticle />
 		</div>
 	);

@@ -1,0 +1,4 @@
+fragment Treatment on Treatment {
+    id 
+    title
+}

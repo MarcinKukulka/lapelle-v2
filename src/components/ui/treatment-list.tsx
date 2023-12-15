@@ -1,20 +1,18 @@
-const TREATMENTS = [
-	{ name: 'zabieg 1', id: 1 },
-	{ name: 'zabieg 2', id: 2 },
-	{ name: 'zabieg 3', id: 3 },
-	{ name: 'zabieg 4', id: 4 },
-	{ name: 'zabieg 5', id: 5 },
-];
+import { type TreatmentFragment } from '@/gql/graphql';
 
-export const TreatmentList = () => {
+export type TreatmentTitleProps = {
+	treatmentsTitle: TreatmentFragment[];
+};
+
+export const TreatmentList = ({ treatmentsTitle }: TreatmentTitleProps) => {
 	return (
-		<div className="sticky top-28 mt-8 h-full min-w-min bg-gold p-6">
+		<div className="top-28 mt-8 h-full min-w-min bg-gold p-6 sm:sticky">
 			<h2 className="text-2xl font-bold">Zabiegi</h2>
 			<ul className="mt-4 list-outside list-[circle]">
-				{TREATMENTS.map(({ name, id }) => {
+				{treatmentsTitle.map(({ title, id }) => {
 					return (
-						<li className="ml-5 break-words p-1" key={id}>
-							{name}
+						<li className="ml-5 p-1 lowercase sm:whitespace-nowrap" key={id}>
+							{title}
 						</li>
 					);
 				})}
