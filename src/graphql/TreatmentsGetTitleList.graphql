@@ -1,4 +1,7 @@
 fragment Treatment on Treatment {
-    id 
-    title
+	id
+	title
+	treatmentContent {
+		raw
+	}
 }

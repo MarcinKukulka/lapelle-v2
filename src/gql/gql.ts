@@ -14,7 +14,7 @@ import * as types from './graphql';
 const documents = {
 	'query TreatmentsGetList {\n  treatments {\n    ...Treatment\n  }\n}':
 		types.TreatmentsGetListDocument,
-	'fragment Treatment on Treatment {\n  id\n  title\n}':
+	'fragment Treatment on Treatment {\n  id\n  title\n  treatmentContent {\n    raw\n  }\n}':
 		types.TreatmentFragmentDoc,
 };
 
@@ -28,7 +28,7 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-	source: 'fragment Treatment on Treatment {\n  id\n  title\n}',
+	source: 'fragment Treatment on Treatment {\n  id\n  title\n  treatmentContent {\n    raw\n  }\n}',
 ): typeof import('./graphql').TreatmentFragmentDoc;
 
 export function graphql(source: string) {
