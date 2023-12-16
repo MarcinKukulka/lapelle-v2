@@ -1,0 +1,5 @@
+fragment OffersAccordion on OffersAccordion {
+    id
+    title
+    content
+}

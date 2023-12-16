@@ -6,23 +6,12 @@ import {
 	AccordionItem,
 } from '@/ui/accordion';
 import { Heading } from '@/ui/heading';
+import { executeGraphql } from '@/api/grapqhlApi';
+import { OffersAccordionsDocument } from '@/gql/graphql';
 
-const OFFERS_ACCORDION = [
-	{
-		id: 1,
-		title: 'Stylizacja brwi i rzęs',
-		content:
-			'Dzięki zabiegom stylizacji brwi i rzęs Twoje oczy zostaną idealnie podkreślone!	Odpowiednio dopasowany kształt brwi i rzęs wpływa na upiększenie i poprawę rysów	Twojej twarzy. To najlepsze co możesz zrobić dla swojego wizerunku zewnętrznego. Dlatego nie zwlekaj i umów się już dziś na bezpłatną konsultację i oddaj swoje brwi i rzęsy ręce profesjonalisty!',
-	},
-	{
-		id: 2,
-		title: 'Pielęgnacja dłoni',
-		content:
-			'Dłonie są Twoją wizytówką, warto o nie zadbać. Dlatego w La Pelle znajdziesz nietylko pielęgnację i stylizacje paznokci, ale również intensywne zabiegi odmładzające, nawilżające i rozjaśniające dłoni. Każdy zabieg pielęgnacyjnypoprzedza bezpłatna konsultacja kosmetologa, podczas której dobrane zostają najbardziej optymalne formy terapii.',
-	},
-];
+export const Offers = async () => {
+	const { offersAccordions } = await executeGraphql(OffersAccordionsDocument);
 
-export const Offers = () => {
 	return (
 		<section className=" bg-white py-12">
 			<SectionWrapper>
@@ -35,7 +24,7 @@ export const Offers = () => {
 					<div className="mt-10 flex w-full flex-col items-stretch px-12 md:flex-row md:justify-between md:gap-x-24">
 						<div className="gap-y-4 md:w-2/5">
 							<Accordion type="single" collapsible>
-								{OFFERS_ACCORDION.map(({ id, title, content }) => {
+								{offersAccordions.map(({ id, title, content }) => {
 									return (
 										<AccordionItem
 											key={id}

@@ -804,6 +804,7 @@ export type Entity = {
 export type EntityTypeName =
 	/** Asset system model */
 	| 'Asset'
+	| 'OffersAccordion'
 	/** Scheduled Operation system model */
 	| 'ScheduledOperation'
 	/** Scheduled Release system model */
@@ -876,6 +877,8 @@ export type Mutation = {
 	 * @deprecated Asset mutations will be overhauled soon
 	 */
 	createAsset?: Maybe<Asset>;
+	/** Create one offersAccordion */
+	createOffersAccordion?: Maybe<OffersAccordion>;
 	/** Create one scheduledRelease */
 	createScheduledRelease?: Maybe<ScheduledRelease>;
 	/** Create one treatment */
@@ -890,12 +893,21 @@ export type Mutation = {
 	/** Delete many Asset documents, return deleted documents */
 	deleteManyAssetsConnection: AssetConnection;
 	/**
+	 * Delete many OffersAccordion documents
+	 * @deprecated Please use the new paginated many mutation (deleteManyOffersAccordionsConnection)
+	 */
+	deleteManyOffersAccordions: BatchPayload;
+	/** Delete many OffersAccordion documents, return deleted documents */
+	deleteManyOffersAccordionsConnection: OffersAccordionConnection;
+	/**
 	 * Delete many Treatment documents
 	 * @deprecated Please use the new paginated many mutation (deleteManyTreatmentsConnection)
 	 */
 	deleteManyTreatments: BatchPayload;
 	/** Delete many Treatment documents, return deleted documents */
 	deleteManyTreatmentsConnection: TreatmentConnection;
+	/** Delete one offersAccordion from _all_ existing stages. Returns deleted document. */
+	deleteOffersAccordion?: Maybe<OffersAccordion>;
 	/** Delete and return scheduled operation */
 	deleteScheduledOperation?: Maybe<ScheduledOperation>;
 	/** Delete one scheduledRelease from _all_ existing stages. Returns deleted document. */
@@ -912,20 +924,33 @@ export type Mutation = {
 	/** Publish many Asset documents */
 	publishManyAssetsConnection: AssetConnection;
 	/**
+	 * Publish many OffersAccordion documents
+	 * @deprecated Please use the new paginated many mutation (publishManyOffersAccordionsConnection)
+	 */
+	publishManyOffersAccordions: BatchPayload;
+	/** Publish many OffersAccordion documents */
+	publishManyOffersAccordionsConnection: OffersAccordionConnection;
+	/**
 	 * Publish many Treatment documents
 	 * @deprecated Please use the new paginated many mutation (publishManyTreatmentsConnection)
 	 */
 	publishManyTreatments: BatchPayload;
 	/** Publish many Treatment documents */
 	publishManyTreatmentsConnection: TreatmentConnection;
+	/** Publish one offersAccordion */
+	publishOffersAccordion?: Maybe<OffersAccordion>;
 	/** Publish one treatment */
 	publishTreatment?: Maybe<Treatment>;
 	/** Schedule to publish one asset */
 	schedulePublishAsset?: Maybe<Asset>;
+	/** Schedule to publish one offersAccordion */
+	schedulePublishOffersAccordion?: Maybe<OffersAccordion>;
 	/** Schedule to publish one treatment */
 	schedulePublishTreatment?: Maybe<Treatment>;
 	/** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	scheduleUnpublishAsset?: Maybe<Asset>;
+	/** Unpublish one offersAccordion from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+	scheduleUnpublishOffersAccordion?: Maybe<OffersAccordion>;
 	/** Unpublish one treatment from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	scheduleUnpublishTreatment?: Maybe<Treatment>;
 	/** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -938,12 +963,21 @@ export type Mutation = {
 	/** Find many Asset documents that match criteria in specified stage and unpublish from target stages */
 	unpublishManyAssetsConnection: AssetConnection;
 	/**
+	 * Unpublish many OffersAccordion documents
+	 * @deprecated Please use the new paginated many mutation (unpublishManyOffersAccordionsConnection)
+	 */
+	unpublishManyOffersAccordions: BatchPayload;
+	/** Find many OffersAccordion documents that match criteria in specified stage and unpublish from target stages */
+	unpublishManyOffersAccordionsConnection: OffersAccordionConnection;
+	/**
 	 * Unpublish many Treatment documents
 	 * @deprecated Please use the new paginated many mutation (unpublishManyTreatmentsConnection)
 	 */
 	unpublishManyTreatments: BatchPayload;
 	/** Find many Treatment documents that match criteria in specified stage and unpublish from target stages */
 	unpublishManyTreatmentsConnection: TreatmentConnection;
+	/** Unpublish one offersAccordion from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+	unpublishOffersAccordion?: Maybe<OffersAccordion>;
 	/** Unpublish one treatment from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	unpublishTreatment?: Maybe<Treatment>;
 	/** Update one asset */
@@ -956,24 +990,39 @@ export type Mutation = {
 	/** Update many Asset documents */
 	updateManyAssetsConnection: AssetConnection;
 	/**
+	 * Update many offersAccordions
+	 * @deprecated Please use the new paginated many mutation (updateManyOffersAccordionsConnection)
+	 */
+	updateManyOffersAccordions: BatchPayload;
+	/** Update many OffersAccordion documents */
+	updateManyOffersAccordionsConnection: OffersAccordionConnection;
+	/**
 	 * Update many treatments
 	 * @deprecated Please use the new paginated many mutation (updateManyTreatmentsConnection)
 	 */
 	updateManyTreatments: BatchPayload;
 	/** Update many Treatment documents */
 	updateManyTreatmentsConnection: TreatmentConnection;
+	/** Update one offersAccordion */
+	updateOffersAccordion?: Maybe<OffersAccordion>;
 	/** Update one scheduledRelease */
 	updateScheduledRelease?: Maybe<ScheduledRelease>;
 	/** Update one treatment */
 	updateTreatment?: Maybe<Treatment>;
 	/** Upsert one asset */
 	upsertAsset?: Maybe<Asset>;
+	/** Upsert one offersAccordion */
+	upsertOffersAccordion?: Maybe<OffersAccordion>;
 	/** Upsert one treatment */
 	upsertTreatment?: Maybe<Treatment>;
 };
 
 export type MutationCreateAssetArgs = {
 	data: AssetCreateInput;
+};
+
+export type MutationCreateOffersAccordionArgs = {
+	data: OffersAccordionCreateInput;
 };
 
 export type MutationCreateScheduledReleaseArgs = {
@@ -1001,6 +1050,19 @@ export type MutationDeleteManyAssetsConnectionArgs = {
 	where?: InputMaybe<AssetManyWhereInput>;
 };
 
+export type MutationDeleteManyOffersAccordionsArgs = {
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
+export type MutationDeleteManyOffersAccordionsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
 export type MutationDeleteManyTreatmentsArgs = {
 	where?: InputMaybe<TreatmentManyWhereInput>;
 };
@@ -1012,6 +1074,10 @@ export type MutationDeleteManyTreatmentsConnectionArgs = {
 	last?: InputMaybe<Scalars['Int']['input']>;
 	skip?: InputMaybe<Scalars['Int']['input']>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
+};
+
+export type MutationDeleteOffersAccordionArgs = {
+	where: OffersAccordionWhereUniqueInput;
 };
 
 export type MutationDeleteScheduledOperationArgs = {
@@ -1056,6 +1122,22 @@ export type MutationPublishManyAssetsConnectionArgs = {
 	withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type MutationPublishManyOffersAccordionsArgs = {
+	to?: Array<Stage>;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
+export type MutationPublishManyOffersAccordionsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	from?: InputMaybe<Stage>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	to?: Array<Stage>;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
 export type MutationPublishManyTreatmentsArgs = {
 	to?: Array<Stage>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
@@ -1070,6 +1152,11 @@ export type MutationPublishManyTreatmentsConnectionArgs = {
 	skip?: InputMaybe<Scalars['Int']['input']>;
 	to?: Array<Stage>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
+};
+
+export type MutationPublishOffersAccordionArgs = {
+	to?: Array<Stage>;
+	where: OffersAccordionWhereUniqueInput;
 };
 
 export type MutationPublishTreatmentArgs = {
@@ -1087,6 +1174,13 @@ export type MutationSchedulePublishAssetArgs = {
 	withDefaultLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type MutationSchedulePublishOffersAccordionArgs = {
+	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+	releaseId?: InputMaybe<Scalars['String']['input']>;
+	to?: Array<Stage>;
+	where: OffersAccordionWhereUniqueInput;
+};
+
 export type MutationSchedulePublishTreatmentArgs = {
 	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
 	releaseId?: InputMaybe<Scalars['String']['input']>;
@@ -1101,6 +1195,13 @@ export type MutationScheduleUnpublishAssetArgs = {
 	releaseId?: InputMaybe<Scalars['String']['input']>;
 	unpublishBase?: InputMaybe<Scalars['Boolean']['input']>;
 	where: AssetWhereUniqueInput;
+};
+
+export type MutationScheduleUnpublishOffersAccordionArgs = {
+	from?: Array<Stage>;
+	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+	releaseId?: InputMaybe<Scalars['String']['input']>;
+	where: OffersAccordionWhereUniqueInput;
 };
 
 export type MutationScheduleUnpublishTreatmentArgs = {
@@ -1137,6 +1238,22 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
 	where?: InputMaybe<AssetManyWhereInput>;
 };
 
+export type MutationUnpublishManyOffersAccordionsArgs = {
+	from?: Array<Stage>;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
+export type MutationUnpublishManyOffersAccordionsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	from?: Array<Stage>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	stage?: InputMaybe<Stage>;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
 export type MutationUnpublishManyTreatmentsArgs = {
 	from?: Array<Stage>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
@@ -1151,6 +1268,11 @@ export type MutationUnpublishManyTreatmentsConnectionArgs = {
 	skip?: InputMaybe<Scalars['Int']['input']>;
 	stage?: InputMaybe<Stage>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
+};
+
+export type MutationUnpublishOffersAccordionArgs = {
+	from?: Array<Stage>;
+	where: OffersAccordionWhereUniqueInput;
 };
 
 export type MutationUnpublishTreatmentArgs = {
@@ -1178,6 +1300,21 @@ export type MutationUpdateManyAssetsConnectionArgs = {
 	where?: InputMaybe<AssetManyWhereInput>;
 };
 
+export type MutationUpdateManyOffersAccordionsArgs = {
+	data: OffersAccordionUpdateManyInput;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
+export type MutationUpdateManyOffersAccordionsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	data: OffersAccordionUpdateManyInput;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<OffersAccordionManyWhereInput>;
+};
+
 export type MutationUpdateManyTreatmentsArgs = {
 	data: TreatmentUpdateManyInput;
 	where?: InputMaybe<TreatmentManyWhereInput>;
@@ -1191,6 +1328,11 @@ export type MutationUpdateManyTreatmentsConnectionArgs = {
 	last?: InputMaybe<Scalars['Int']['input']>;
 	skip?: InputMaybe<Scalars['Int']['input']>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
+};
+
+export type MutationUpdateOffersAccordionArgs = {
+	data: OffersAccordionUpdateInput;
+	where: OffersAccordionWhereUniqueInput;
 };
 
 export type MutationUpdateScheduledReleaseArgs = {
@@ -1208,6 +1350,11 @@ export type MutationUpsertAssetArgs = {
 	where: AssetWhereUniqueInput;
 };
 
+export type MutationUpsertOffersAccordionArgs = {
+	upsert: OffersAccordionUpsertInput;
+	where: OffersAccordionWhereUniqueInput;
+};
+
 export type MutationUpsertTreatmentArgs = {
 	upsert: TreatmentUpsertInput;
 	where: TreatmentWhereUniqueInput;
@@ -1219,6 +1366,483 @@ export type Node = {
 	id: Scalars['ID']['output'];
 	/** The Stage of an object */
 	stage: Stage;
+};
+
+export type OffersAccordion = Entity &
+	Node & {
+		content?: Maybe<Scalars['String']['output']>;
+		/** The time the document was created */
+		createdAt: Scalars['DateTime']['output'];
+		/** User that created this document */
+		createdBy?: Maybe<User>;
+		/** Get the document in other stages */
+		documentInStages: Array<OffersAccordion>;
+		/** List of OffersAccordion versions */
+		history: Array<Version>;
+		/** The unique identifier */
+		id: Scalars['ID']['output'];
+		/** The time the document was published. Null on documents in draft stage. */
+		publishedAt?: Maybe<Scalars['DateTime']['output']>;
+		/** User that last published this document */
+		publishedBy?: Maybe<User>;
+		scheduledIn: Array<ScheduledOperation>;
+		/** System stage field */
+		stage: Stage;
+		title?: Maybe<Scalars['String']['output']>;
+		/** The time the document was updated */
+		updatedAt: Scalars['DateTime']['output'];
+		/** User that last updated this document */
+		updatedBy?: Maybe<User>;
+	};
+
+export type OffersAccordionCreatedByArgs = {
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+};
+
+export type OffersAccordionDocumentInStagesArgs = {
+	includeCurrent?: Scalars['Boolean']['input'];
+	inheritLocale?: Scalars['Boolean']['input'];
+	stages?: Array<Stage>;
+};
+
+export type OffersAccordionHistoryArgs = {
+	limit?: Scalars['Int']['input'];
+	skip?: Scalars['Int']['input'];
+	stageOverride?: InputMaybe<Stage>;
+};
+
+export type OffersAccordionPublishedByArgs = {
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+};
+
+export type OffersAccordionScheduledInArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+export type OffersAccordionUpdatedByArgs = {
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+};
+
+export type OffersAccordionConnectInput = {
+	/** Allow to specify document position in list of connected documents, will default to appending at end of list */
+	position?: InputMaybe<ConnectPositionInput>;
+	/** Document to connect */
+	where: OffersAccordionWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type OffersAccordionConnection = {
+	aggregate: Aggregate;
+	/** A list of edges. */
+	edges: Array<OffersAccordionEdge>;
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+};
+
+export type OffersAccordionCreateInput = {
+	content?: InputMaybe<Scalars['String']['input']>;
+	createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+	title?: InputMaybe<Scalars['String']['input']>;
+	updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type OffersAccordionCreateManyInlineInput = {
+	/** Connect multiple existing OffersAccordion documents */
+	connect?: InputMaybe<Array<OffersAccordionWhereUniqueInput>>;
+	/** Create and connect multiple existing OffersAccordion documents */
+	create?: InputMaybe<Array<OffersAccordionCreateInput>>;
+};
+
+export type OffersAccordionCreateOneInlineInput = {
+	/** Connect one existing OffersAccordion document */
+	connect?: InputMaybe<OffersAccordionWhereUniqueInput>;
+	/** Create and connect one OffersAccordion document */
+	create?: InputMaybe<OffersAccordionCreateInput>;
+};
+
+/** An edge in a connection. */
+export type OffersAccordionEdge = {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['String']['output'];
+	/** The item at the end of the edge. */
+	node: OffersAccordion;
+};
+
+/** Identifies documents */
+export type OffersAccordionManyWhereInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<OffersAccordionWhereInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<OffersAccordionWhereInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<OffersAccordionWhereInput>>;
+	/** Contains search across all appropriate fields. */
+	_search?: InputMaybe<Scalars['String']['input']>;
+	content?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	content_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	content_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	content_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	content_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	content_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	content_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	content_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** All values not starting with the given string. */
+	content_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	content_starts_with?: InputMaybe<Scalars['String']['input']>;
+	createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	createdAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	createdBy?: InputMaybe<UserWhereInput>;
+	documentInStages_every?: InputMaybe<OffersAccordionWhereStageInput>;
+	documentInStages_none?: InputMaybe<OffersAccordionWhereStageInput>;
+	documentInStages_some?: InputMaybe<OffersAccordionWhereStageInput>;
+	id?: InputMaybe<Scalars['ID']['input']>;
+	/** All values containing the given string. */
+	id_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values ending with the given string. */
+	id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are contained in given list. */
+	id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	id_not?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not containing the given string. */
+	id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not ending with the given string */
+	id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are not contained in given list. */
+	id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** All values not starting with the given string. */
+	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values starting with the given string. */
+	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	publishedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	publishedBy?: InputMaybe<UserWhereInput>;
+	scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+	title?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	title_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	title_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	title_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	title_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** All values not starting with the given string. */
+	title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	title_starts_with?: InputMaybe<Scalars['String']['input']>;
+	updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	updatedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export type OffersAccordionOrderByInput =
+	| 'content_ASC'
+	| 'content_DESC'
+	| 'createdAt_ASC'
+	| 'createdAt_DESC'
+	| 'id_ASC'
+	| 'id_DESC'
+	| 'publishedAt_ASC'
+	| 'publishedAt_DESC'
+	| 'title_ASC'
+	| 'title_DESC'
+	| 'updatedAt_ASC'
+	| 'updatedAt_DESC';
+
+export type OffersAccordionUpdateInput = {
+	content?: InputMaybe<Scalars['String']['input']>;
+	title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type OffersAccordionUpdateManyInlineInput = {
+	/** Connect multiple existing OffersAccordion documents */
+	connect?: InputMaybe<Array<OffersAccordionConnectInput>>;
+	/** Create and connect multiple OffersAccordion documents */
+	create?: InputMaybe<Array<OffersAccordionCreateInput>>;
+	/** Delete multiple OffersAccordion documents */
+	delete?: InputMaybe<Array<OffersAccordionWhereUniqueInput>>;
+	/** Disconnect multiple OffersAccordion documents */
+	disconnect?: InputMaybe<Array<OffersAccordionWhereUniqueInput>>;
+	/** Override currently-connected documents with multiple existing OffersAccordion documents */
+	set?: InputMaybe<Array<OffersAccordionWhereUniqueInput>>;
+	/** Update multiple OffersAccordion documents */
+	update?: InputMaybe<Array<OffersAccordionUpdateWithNestedWhereUniqueInput>>;
+	/** Upsert multiple OffersAccordion documents */
+	upsert?: InputMaybe<Array<OffersAccordionUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type OffersAccordionUpdateManyInput = {
+	content?: InputMaybe<Scalars['String']['input']>;
+	title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type OffersAccordionUpdateManyWithNestedWhereInput = {
+	/** Update many input */
+	data: OffersAccordionUpdateManyInput;
+	/** Document search */
+	where: OffersAccordionWhereInput;
+};
+
+export type OffersAccordionUpdateOneInlineInput = {
+	/** Connect existing OffersAccordion document */
+	connect?: InputMaybe<OffersAccordionWhereUniqueInput>;
+	/** Create and connect one OffersAccordion document */
+	create?: InputMaybe<OffersAccordionCreateInput>;
+	/** Delete currently connected OffersAccordion document */
+	delete?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Disconnect currently connected OffersAccordion document */
+	disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Update single OffersAccordion document */
+	update?: InputMaybe<OffersAccordionUpdateWithNestedWhereUniqueInput>;
+	/** Upsert single OffersAccordion document */
+	upsert?: InputMaybe<OffersAccordionUpsertWithNestedWhereUniqueInput>;
+};
+
+export type OffersAccordionUpdateWithNestedWhereUniqueInput = {
+	/** Document to update */
+	data: OffersAccordionUpdateInput;
+	/** Unique document search */
+	where: OffersAccordionWhereUniqueInput;
+};
+
+export type OffersAccordionUpsertInput = {
+	/** Create document if it didn't exist */
+	create: OffersAccordionCreateInput;
+	/** Update document if it exists */
+	update: OffersAccordionUpdateInput;
+};
+
+export type OffersAccordionUpsertWithNestedWhereUniqueInput = {
+	/** Upsert data */
+	data: OffersAccordionUpsertInput;
+	/** Unique document search */
+	where: OffersAccordionWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type OffersAccordionWhereComparatorInput = {
+	/** This field can be used to request to check if the entry is outdated by internal comparison */
+	outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type OffersAccordionWhereInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<OffersAccordionWhereInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<OffersAccordionWhereInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<OffersAccordionWhereInput>>;
+	/** Contains search across all appropriate fields. */
+	_search?: InputMaybe<Scalars['String']['input']>;
+	content?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	content_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	content_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	content_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	content_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	content_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	content_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	content_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** All values not starting with the given string. */
+	content_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	content_starts_with?: InputMaybe<Scalars['String']['input']>;
+	createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	createdAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	createdBy?: InputMaybe<UserWhereInput>;
+	documentInStages_every?: InputMaybe<OffersAccordionWhereStageInput>;
+	documentInStages_none?: InputMaybe<OffersAccordionWhereStageInput>;
+	documentInStages_some?: InputMaybe<OffersAccordionWhereStageInput>;
+	id?: InputMaybe<Scalars['ID']['input']>;
+	/** All values containing the given string. */
+	id_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values ending with the given string. */
+	id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are contained in given list. */
+	id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	id_not?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not containing the given string. */
+	id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not ending with the given string */
+	id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are not contained in given list. */
+	id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** All values not starting with the given string. */
+	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values starting with the given string. */
+	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	publishedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	publishedBy?: InputMaybe<UserWhereInput>;
+	scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+	title?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	title_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	title_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	title_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	title_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** All values not starting with the given string. */
+	title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	title_starts_with?: InputMaybe<Scalars['String']['input']>;
+	updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	updatedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type OffersAccordionWhereStageInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<OffersAccordionWhereStageInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<OffersAccordionWhereStageInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<OffersAccordionWhereStageInput>>;
+	/** This field contains fields which can be set as true or false to specify an internal comparison */
+	compareWithParent?: InputMaybe<OffersAccordionWhereComparatorInput>;
+	/** Specify the stage to compare with */
+	stage?: InputMaybe<Stage>;
+};
+
+/** References OffersAccordion record uniquely */
+export type OffersAccordionWhereUniqueInput = {
+	id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 /** Information about pagination in a connection. */
@@ -1255,6 +1879,14 @@ export type Query = {
 	entities?: Maybe<Array<Entity>>;
 	/** Fetches an object given its ID */
 	node?: Maybe<Node>;
+	/** Retrieve a single offersAccordion */
+	offersAccordion?: Maybe<OffersAccordion>;
+	/** Retrieve document version */
+	offersAccordionVersion?: Maybe<DocumentVersion>;
+	/** Retrieve multiple offersAccordions */
+	offersAccordions: Array<OffersAccordion>;
+	/** Retrieve multiple offersAccordions using the Relay connection interface */
+	offersAccordionsConnection: OffersAccordionConnection;
 	/** Retrieve a single scheduledOperation */
 	scheduledOperation?: Maybe<ScheduledOperation>;
 	/** Retrieve multiple scheduledOperations */
@@ -1325,6 +1957,40 @@ export type QueryNodeArgs = {
 	id: Scalars['ID']['input'];
 	locales?: Array<Locale>;
 	stage?: Stage;
+};
+
+export type QueryOffersAccordionArgs = {
+	locales?: Array<Locale>;
+	stage?: Stage;
+	where: OffersAccordionWhereUniqueInput;
+};
+
+export type QueryOffersAccordionVersionArgs = {
+	where: VersionWhereInput;
+};
+
+export type QueryOffersAccordionsArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: Array<Locale>;
+	orderBy?: InputMaybe<OffersAccordionOrderByInput>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	stage?: Stage;
+	where?: InputMaybe<OffersAccordionWhereInput>;
+};
+
+export type QueryOffersAccordionsConnectionArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: Array<Locale>;
+	orderBy?: InputMaybe<OffersAccordionOrderByInput>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	stage?: Stage;
+	where?: InputMaybe<OffersAccordionWhereInput>;
 };
 
 export type QueryScheduledOperationArgs = {
@@ -1555,7 +2221,10 @@ export type ScheduledOperationUpdatedByArgs = {
 	locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | Treatment;
+export type ScheduledOperationAffectedDocument =
+	| Asset
+	| OffersAccordion
+	| Treatment;
 
 export type ScheduledOperationConnectInput = {
 	/** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -3449,6 +4118,22 @@ export type _SystemDateTimeFieldVariation =
 	| 'combined'
 	| 'localization';
 
+export type OffersAccordionsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type OffersAccordionsQuery = {
+	offersAccordions: Array<{
+		id: string;
+		title?: string | null;
+		content?: string | null;
+	}>;
+};
+
+export type OffersAccordionFragment = {
+	id: string;
+	title?: string | null;
+	content?: string | null;
+};
+
 export type TreatmentsGetListQueryVariables = Exact<{ [key: string]: never }>;
 
 export type TreatmentsGetListQuery = {
@@ -3482,6 +4167,16 @@ export class TypedDocumentString<TResult, TVariables>
 		return this.value;
 	}
 }
+export const OffersAccordionFragmentDoc = new TypedDocumentString(
+	`
+    fragment OffersAccordion on OffersAccordion {
+  id
+  title
+  content
+}
+    `,
+	{ fragmentName: 'OffersAccordion' },
+) as unknown as TypedDocumentString<OffersAccordionFragment, unknown>;
 export const TreatmentFragmentDoc = new TypedDocumentString(
 	`
     fragment Treatment on Treatment {
@@ -3494,6 +4189,20 @@ export const TreatmentFragmentDoc = new TypedDocumentString(
     `,
 	{ fragmentName: 'Treatment' },
 ) as unknown as TypedDocumentString<TreatmentFragment, unknown>;
+export const OffersAccordionsDocument = new TypedDocumentString(`
+    query OffersAccordions {
+  offersAccordions {
+    ...OffersAccordion
+  }
+}
+    fragment OffersAccordion on OffersAccordion {
+  id
+  title
+  content
+}`) as unknown as TypedDocumentString<
+	OffersAccordionsQuery,
+	OffersAccordionsQueryVariables
+>;
 export const TreatmentsGetListDocument = new TypedDocumentString(`
     query TreatmentsGetList {
   treatments {

@@ -12,12 +12,28 @@ import * as types from './graphql';
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+	'query OffersAccordions {\n  offersAccordions {\n    ...OffersAccordion\n  }\n}':
+		types.OffersAccordionsDocument,
+	'fragment OffersAccordion on OffersAccordion {\n  id\n  title\n  content\n}':
+		types.OffersAccordionFragmentDoc,
 	'query TreatmentsGetList {\n  treatments {\n    ...Treatment\n  }\n}':
 		types.TreatmentsGetListDocument,
 	'fragment Treatment on Treatment {\n  id\n  title\n  treatmentContent {\n    raw\n  }\n}':
 		types.TreatmentFragmentDoc,
 };
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+	source: 'query OffersAccordions {\n  offersAccordions {\n    ...OffersAccordion\n  }\n}',
+): typeof import('./graphql').OffersAccordionsDocument;
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+	source: 'fragment OffersAccordion on OffersAccordion {\n  id\n  title\n  content\n}',
+): typeof import('./graphql').OffersAccordionFragmentDoc;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
