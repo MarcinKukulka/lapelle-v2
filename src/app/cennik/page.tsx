@@ -2,7 +2,7 @@ import { Heading } from '@/components/ui/heading';
 export default function PriceListPage() {
 	return (
 		<section>
-			<Heading text="Cennik" lineColor="border-black" />
+			<Heading textColor="text-black" text="Cennik" lineColor="border-black" />
 		</section>
 	);
 }
