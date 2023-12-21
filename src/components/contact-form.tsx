@@ -64,7 +64,7 @@ export const ContactForm = () => {
 					name="username"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Imię</FormLabel>
+							<FormLabel className="text-lg">Imię</FormLabel>
 							<FormControl>
 								<Input
 									className="bg-gold/10"
@@ -81,7 +81,7 @@ export const ContactForm = () => {
 					name="email"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>E-mail</FormLabel>
+							<FormLabel className="text-lg">E-mail</FormLabel>
 							<FormControl>
 								<Input
 									className="bg-gold/10"
@@ -98,7 +98,7 @@ export const ContactForm = () => {
 					name="subject"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Temat</FormLabel>
+							<FormLabel className="text-lg">Temat</FormLabel>
 							<FormControl>
 								<Input
 									className="bg-gold/10"
@@ -115,7 +115,7 @@ export const ContactForm = () => {
 					name="message"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Wiadomość</FormLabel>
+							<FormLabel className="text-lg">Wiadomość</FormLabel>
 							<FormControl>
 								<Textarea
 									className="bg-gold/10"
@@ -128,7 +128,9 @@ export const ContactForm = () => {
 					)}
 				/>
 				<div className="flex justify-between">
-					<Button type="submit">Wyślij</Button>
+					<Button className="text-lg" type="submit">
+						Wyślij
+					</Button>
 					<Button
 						variant="ghost"
 						className="underline underline-offset-4 hover:bg-gold/40"
