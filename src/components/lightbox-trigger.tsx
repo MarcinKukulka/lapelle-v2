@@ -1,7 +1,7 @@
 'use client';
 
 import 'yet-another-react-lightbox/styles.css';
-import useLightbox from '@/hooks/useLightbox';
+import { useLightbox } from '@/hooks/useLightbox';
 import { type GalleryImages } from '@/api/fetchGalleryImages';
 
 export const LightboxTrigger = ({
