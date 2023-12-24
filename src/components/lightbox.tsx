@@ -4,6 +4,6 @@ import LightboxComponent, {
 
 import 'yet-another-react-lightbox/styles.css';
 
-export default function Lightbox(props: LightboxExternalProps) {
+export const Lightbox = (props: LightboxExternalProps) => {
 	return <LightboxComponent {...props} />;
-}
+};
