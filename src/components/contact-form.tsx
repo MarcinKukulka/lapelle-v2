@@ -54,7 +54,7 @@ export const ContactForm = () => {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="w-2/3 max-w-screen-xl space-y-4 md:w-1/3"
+				className="w-2/3  max-w-2xl space-y-8"
 			>
 				<FormField
 					control={form.control}

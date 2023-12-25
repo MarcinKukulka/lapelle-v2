@@ -7,7 +7,10 @@ import { SectionWrapper } from '@/components/ui/section-wrapper';
 export default function Kontakt() {
 	return (
 		<section className="bg-black">
-			<div className="flex justify-center  bg-white py-20">
+			<div className="flex flex-col items-center justify-center  bg-white py-20">
+				<h2 className="mb-12 text-2xl font-semibold md:text-4xl">
+					Napisz do mnie...
+				</h2>
 				<ContactForm />
 			</div>
 			<SectionWrapper>
