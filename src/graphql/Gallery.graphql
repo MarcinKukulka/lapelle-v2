@@ -1,0 +1,6 @@
+fragment Gallery on Gallery {
+    image {
+        url
+        fileName
+    }
+}

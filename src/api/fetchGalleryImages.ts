@@ -5,8 +5,8 @@ const src = '/assets/gallery';
 export type GalleryImages = {
 	src: string;
 	alt: string;
-	width: number;
-	height: number;
+	width?: number;
+	height?: number;
 };
 
 export async function fetchGalleryImages() {

@@ -2,12 +2,19 @@ import { Suspense } from 'react';
 import { Heading } from '@/ui/heading';
 
 import { SectionWrapper } from '@/ui/section-wrapper';
-import { fetchGalleryImages } from '@/api/fetchGalleryImages';
+import { type GalleryImages } from '@/api/fetchGalleryImages';
 import { ImagesContainer } from '@/components/ui/images-container';
+import { executeGraphql } from '@/api/grapqhlApi';
+import { GalleryDocument } from '@/gql/graphql';
 
-const galleryImages = await fetchGalleryImages();
+export const Gallery = async () => {
+	const fetchGalleryImagesFromHygraph = await executeGraphql(GalleryDocument);
+	const galleryImages: GalleryImages[] =
+		fetchGalleryImagesFromHygraph.galleries[0].image.map((image) => ({
+			src: image.url,
+			alt: image.fileName,
+		}));
 
-export const Gallery = () => {
 	return (
 		<section className="pb-12">
 			<SectionWrapper>
