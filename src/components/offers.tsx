@@ -21,7 +21,7 @@ export const Offers = async () => {
 						lineColor="border-black"
 						text="Oferta"
 					/>
-					<div className="mt-10 flex w-full flex-col items-stretch px-12 md:flex-row md:justify-between md:gap-x-24">
+					<div className="mt-10 flex w-full flex-col items-stretch px-8 md:flex-row md:justify-between md:gap-x-24 md:px-12">
 						<div className="gap-y-4 md:w-2/5">
 							<Accordion type="single" collapsible>
 								{offersAccordions.map(({ id, title, content }) => {

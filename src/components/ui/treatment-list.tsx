@@ -30,7 +30,7 @@ export const TreatmentList = ({ treatments }: TreatmentTitleProps) => {
 	const handleTreatmentsIndex = (index: number) => setSelectedTreatment(index);
 
 	return (
-		<div className="mx-auto flex max-w-screen-xl flex-col px-10 sm:flex-row">
+		<div className="mx-auto flex max-w-screen-xl flex-col px-8 sm:flex-row">
 			<div className="top-28 mt-8 h-full min-w-min bg-gold p-6 sm:sticky">
 				<h2 className="text-2xl font-bold">Zabiegi</h2>
 				<ul className="mt-4 list-outside list-[circle]">
