@@ -20,6 +20,10 @@ const documents = {
 		types.OffersAccordionsDocument,
 	'fragment OffersAccordion on OffersAccordion {\n  id\n  title\n  content\n}':
 		types.OffersAccordionFragmentDoc,
+	'fragment PriceList on PriceList {\n  title\n  treatmentTable {\n    id\n    treatmentName\n    treatmentPrice\n  }\n}':
+		types.PriceListFragmentDoc,
+	'query PriceList {\n  priceLists {\n    ...PriceList\n  }\n}':
+		types.PriceListDocument,
 	'query TreatmentsGetList {\n  treatments {\n    ...Treatment\n  }\n}':
 		types.TreatmentsGetListDocument,
 	'fragment Treatment on Treatment {\n  id\n  title\n  treatmentContent {\n    raw\n  }\n}':
@@ -50,6 +54,18 @@ export function graphql(
 export function graphql(
 	source: 'fragment OffersAccordion on OffersAccordion {\n  id\n  title\n  content\n}',
 ): typeof import('./graphql').OffersAccordionFragmentDoc;
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+	source: 'fragment PriceList on PriceList {\n  title\n  treatmentTable {\n    id\n    treatmentName\n    treatmentPrice\n  }\n}',
+): typeof import('./graphql').PriceListFragmentDoc;
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+	source: 'query PriceList {\n  priceLists {\n    ...PriceList\n  }\n}',
+): typeof import('./graphql').PriceListDocument;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

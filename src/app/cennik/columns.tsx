@@ -1,25 +1,15 @@
 'use client';
 
 import { type ColumnDef } from '@tanstack/react-table';
+import { type PriceListFragment } from '@/gql/graphql';
 
-export type Treatment = {
-	title: string;
-	treatmentTable: TreatmentTable[];
-};
-
-export type TreatmentTable = {
-	id: string;
-	price: number;
-	name: string;
-};
-
-export const columns: ColumnDef<TreatmentTable>[] = [
+export const columns: ColumnDef<PriceListFragment>[] = [
 	{
-		accessorKey: 'name',
+		accessorKey: 'treatmentName',
 		header: 'Zabieg',
 	},
 	{
-		accessorKey: 'price',
+		accessorKey: 'treatmentPrice',
 		header: 'Cena',
 	},
 ];

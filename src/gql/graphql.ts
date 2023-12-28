@@ -828,11 +828,13 @@ export type EntityTypeName =
 	| 'Asset'
 	| 'Gallery'
 	| 'OffersAccordion'
+	| 'PriceList'
 	/** Scheduled Operation system model */
 	| 'ScheduledOperation'
 	/** Scheduled Release system model */
 	| 'ScheduledRelease'
 	| 'Treatment'
+	| 'TreatmentTable'
 	/** User system model */
 	| 'User';
 
@@ -1316,6 +1318,8 @@ export type Mutation = {
 	createGallery?: Maybe<Gallery>;
 	/** Create one offersAccordion */
 	createOffersAccordion?: Maybe<OffersAccordion>;
+	/** Create one priceList */
+	createPriceList?: Maybe<PriceList>;
 	/** Create one scheduledRelease */
 	createScheduledRelease?: Maybe<ScheduledRelease>;
 	/** Create one treatment */
@@ -1346,6 +1350,13 @@ export type Mutation = {
 	/** Delete many OffersAccordion documents, return deleted documents */
 	deleteManyOffersAccordionsConnection: OffersAccordionConnection;
 	/**
+	 * Delete many PriceList documents
+	 * @deprecated Please use the new paginated many mutation (deleteManyPriceListsConnection)
+	 */
+	deleteManyPriceLists: BatchPayload;
+	/** Delete many PriceList documents, return deleted documents */
+	deleteManyPriceListsConnection: PriceListConnection;
+	/**
 	 * Delete many Treatment documents
 	 * @deprecated Please use the new paginated many mutation (deleteManyTreatmentsConnection)
 	 */
@@ -1354,6 +1365,8 @@ export type Mutation = {
 	deleteManyTreatmentsConnection: TreatmentConnection;
 	/** Delete one offersAccordion from _all_ existing stages. Returns deleted document. */
 	deleteOffersAccordion?: Maybe<OffersAccordion>;
+	/** Delete one priceList from _all_ existing stages. Returns deleted document. */
+	deletePriceList?: Maybe<PriceList>;
 	/** Delete and return scheduled operation */
 	deleteScheduledOperation?: Maybe<ScheduledOperation>;
 	/** Delete one scheduledRelease from _all_ existing stages. Returns deleted document. */
@@ -1386,6 +1399,13 @@ export type Mutation = {
 	/** Publish many OffersAccordion documents */
 	publishManyOffersAccordionsConnection: OffersAccordionConnection;
 	/**
+	 * Publish many PriceList documents
+	 * @deprecated Please use the new paginated many mutation (publishManyPriceListsConnection)
+	 */
+	publishManyPriceLists: BatchPayload;
+	/** Publish many PriceList documents */
+	publishManyPriceListsConnection: PriceListConnection;
+	/**
 	 * Publish many Treatment documents
 	 * @deprecated Please use the new paginated many mutation (publishManyTreatmentsConnection)
 	 */
@@ -1394,6 +1414,8 @@ export type Mutation = {
 	publishManyTreatmentsConnection: TreatmentConnection;
 	/** Publish one offersAccordion */
 	publishOffersAccordion?: Maybe<OffersAccordion>;
+	/** Publish one priceList */
+	publishPriceList?: Maybe<PriceList>;
 	/** Publish one treatment */
 	publishTreatment?: Maybe<Treatment>;
 	/** Schedule to publish one asset */
@@ -1402,6 +1424,8 @@ export type Mutation = {
 	schedulePublishGallery?: Maybe<Gallery>;
 	/** Schedule to publish one offersAccordion */
 	schedulePublishOffersAccordion?: Maybe<OffersAccordion>;
+	/** Schedule to publish one priceList */
+	schedulePublishPriceList?: Maybe<PriceList>;
 	/** Schedule to publish one treatment */
 	schedulePublishTreatment?: Maybe<Treatment>;
 	/** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1410,6 +1434,8 @@ export type Mutation = {
 	scheduleUnpublishGallery?: Maybe<Gallery>;
 	/** Unpublish one offersAccordion from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	scheduleUnpublishOffersAccordion?: Maybe<OffersAccordion>;
+	/** Unpublish one priceList from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+	scheduleUnpublishPriceList?: Maybe<PriceList>;
 	/** Unpublish one treatment from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	scheduleUnpublishTreatment?: Maybe<Treatment>;
 	/** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1438,6 +1464,13 @@ export type Mutation = {
 	/** Find many OffersAccordion documents that match criteria in specified stage and unpublish from target stages */
 	unpublishManyOffersAccordionsConnection: OffersAccordionConnection;
 	/**
+	 * Unpublish many PriceList documents
+	 * @deprecated Please use the new paginated many mutation (unpublishManyPriceListsConnection)
+	 */
+	unpublishManyPriceLists: BatchPayload;
+	/** Find many PriceList documents that match criteria in specified stage and unpublish from target stages */
+	unpublishManyPriceListsConnection: PriceListConnection;
+	/**
 	 * Unpublish many Treatment documents
 	 * @deprecated Please use the new paginated many mutation (unpublishManyTreatmentsConnection)
 	 */
@@ -1446,6 +1479,8 @@ export type Mutation = {
 	unpublishManyTreatmentsConnection: TreatmentConnection;
 	/** Unpublish one offersAccordion from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	unpublishOffersAccordion?: Maybe<OffersAccordion>;
+	/** Unpublish one priceList from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+	unpublishPriceList?: Maybe<PriceList>;
 	/** Unpublish one treatment from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
 	unpublishTreatment?: Maybe<Treatment>;
 	/** Update one asset */
@@ -1474,6 +1509,13 @@ export type Mutation = {
 	/** Update many OffersAccordion documents */
 	updateManyOffersAccordionsConnection: OffersAccordionConnection;
 	/**
+	 * Update many priceLists
+	 * @deprecated Please use the new paginated many mutation (updateManyPriceListsConnection)
+	 */
+	updateManyPriceLists: BatchPayload;
+	/** Update many PriceList documents */
+	updateManyPriceListsConnection: PriceListConnection;
+	/**
 	 * Update many treatments
 	 * @deprecated Please use the new paginated many mutation (updateManyTreatmentsConnection)
 	 */
@@ -1482,6 +1524,8 @@ export type Mutation = {
 	updateManyTreatmentsConnection: TreatmentConnection;
 	/** Update one offersAccordion */
 	updateOffersAccordion?: Maybe<OffersAccordion>;
+	/** Update one priceList */
+	updatePriceList?: Maybe<PriceList>;
 	/** Update one scheduledRelease */
 	updateScheduledRelease?: Maybe<ScheduledRelease>;
 	/** Update one treatment */
@@ -1492,6 +1536,8 @@ export type Mutation = {
 	upsertGallery?: Maybe<Gallery>;
 	/** Upsert one offersAccordion */
 	upsertOffersAccordion?: Maybe<OffersAccordion>;
+	/** Upsert one priceList */
+	upsertPriceList?: Maybe<PriceList>;
 	/** Upsert one treatment */
 	upsertTreatment?: Maybe<Treatment>;
 };
@@ -1506,6 +1552,10 @@ export type MutationCreateGalleryArgs = {
 
 export type MutationCreateOffersAccordionArgs = {
 	data: OffersAccordionCreateInput;
+};
+
+export type MutationCreatePriceListArgs = {
+	data: PriceListCreateInput;
 };
 
 export type MutationCreateScheduledReleaseArgs = {
@@ -1563,6 +1613,19 @@ export type MutationDeleteManyOffersAccordionsConnectionArgs = {
 	where?: InputMaybe<OffersAccordionManyWhereInput>;
 };
 
+export type MutationDeleteManyPriceListsArgs = {
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
+export type MutationDeleteManyPriceListsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
 export type MutationDeleteManyTreatmentsArgs = {
 	where?: InputMaybe<TreatmentManyWhereInput>;
 };
@@ -1578,6 +1641,10 @@ export type MutationDeleteManyTreatmentsConnectionArgs = {
 
 export type MutationDeleteOffersAccordionArgs = {
 	where: OffersAccordionWhereUniqueInput;
+};
+
+export type MutationDeletePriceListArgs = {
+	where: PriceListWhereUniqueInput;
 };
 
 export type MutationDeleteScheduledOperationArgs = {
@@ -1659,6 +1726,22 @@ export type MutationPublishManyOffersAccordionsConnectionArgs = {
 	where?: InputMaybe<OffersAccordionManyWhereInput>;
 };
 
+export type MutationPublishManyPriceListsArgs = {
+	to?: Array<Stage>;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
+export type MutationPublishManyPriceListsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	from?: InputMaybe<Stage>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	to?: Array<Stage>;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
 export type MutationPublishManyTreatmentsArgs = {
 	to?: Array<Stage>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
@@ -1678,6 +1761,11 @@ export type MutationPublishManyTreatmentsConnectionArgs = {
 export type MutationPublishOffersAccordionArgs = {
 	to?: Array<Stage>;
 	where: OffersAccordionWhereUniqueInput;
+};
+
+export type MutationPublishPriceListArgs = {
+	to?: Array<Stage>;
+	where: PriceListWhereUniqueInput;
 };
 
 export type MutationPublishTreatmentArgs = {
@@ -1709,6 +1797,13 @@ export type MutationSchedulePublishOffersAccordionArgs = {
 	where: OffersAccordionWhereUniqueInput;
 };
 
+export type MutationSchedulePublishPriceListArgs = {
+	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+	releaseId?: InputMaybe<Scalars['String']['input']>;
+	to?: Array<Stage>;
+	where: PriceListWhereUniqueInput;
+};
+
 export type MutationSchedulePublishTreatmentArgs = {
 	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
 	releaseId?: InputMaybe<Scalars['String']['input']>;
@@ -1737,6 +1832,13 @@ export type MutationScheduleUnpublishOffersAccordionArgs = {
 	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
 	releaseId?: InputMaybe<Scalars['String']['input']>;
 	where: OffersAccordionWhereUniqueInput;
+};
+
+export type MutationScheduleUnpublishPriceListArgs = {
+	from?: Array<Stage>;
+	releaseAt?: InputMaybe<Scalars['DateTime']['input']>;
+	releaseId?: InputMaybe<Scalars['String']['input']>;
+	where: PriceListWhereUniqueInput;
 };
 
 export type MutationScheduleUnpublishTreatmentArgs = {
@@ -1810,6 +1912,22 @@ export type MutationUnpublishManyOffersAccordionsConnectionArgs = {
 	where?: InputMaybe<OffersAccordionManyWhereInput>;
 };
 
+export type MutationUnpublishManyPriceListsArgs = {
+	from?: Array<Stage>;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
+export type MutationUnpublishManyPriceListsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	from?: Array<Stage>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	stage?: InputMaybe<Stage>;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
 export type MutationUnpublishManyTreatmentsArgs = {
 	from?: Array<Stage>;
 	where?: InputMaybe<TreatmentManyWhereInput>;
@@ -1829,6 +1947,11 @@ export type MutationUnpublishManyTreatmentsConnectionArgs = {
 export type MutationUnpublishOffersAccordionArgs = {
 	from?: Array<Stage>;
 	where: OffersAccordionWhereUniqueInput;
+};
+
+export type MutationUnpublishPriceListArgs = {
+	from?: Array<Stage>;
+	where: PriceListWhereUniqueInput;
 };
 
 export type MutationUnpublishTreatmentArgs = {
@@ -1891,6 +2014,21 @@ export type MutationUpdateManyOffersAccordionsConnectionArgs = {
 	where?: InputMaybe<OffersAccordionManyWhereInput>;
 };
 
+export type MutationUpdateManyPriceListsArgs = {
+	data: PriceListUpdateManyInput;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
+export type MutationUpdateManyPriceListsConnectionArgs = {
+	after?: InputMaybe<Scalars['ID']['input']>;
+	before?: InputMaybe<Scalars['ID']['input']>;
+	data: PriceListUpdateManyInput;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<PriceListManyWhereInput>;
+};
+
 export type MutationUpdateManyTreatmentsArgs = {
 	data: TreatmentUpdateManyInput;
 	where?: InputMaybe<TreatmentManyWhereInput>;
@@ -1909,6 +2047,11 @@ export type MutationUpdateManyTreatmentsConnectionArgs = {
 export type MutationUpdateOffersAccordionArgs = {
 	data: OffersAccordionUpdateInput;
 	where: OffersAccordionWhereUniqueInput;
+};
+
+export type MutationUpdatePriceListArgs = {
+	data: PriceListUpdateInput;
+	where: PriceListWhereUniqueInput;
 };
 
 export type MutationUpdateScheduledReleaseArgs = {
@@ -1934,6 +2077,11 @@ export type MutationUpsertGalleryArgs = {
 export type MutationUpsertOffersAccordionArgs = {
 	upsert: OffersAccordionUpsertInput;
 	where: OffersAccordionWhereUniqueInput;
+};
+
+export type MutationUpsertPriceListArgs = {
+	upsert: PriceListUpsertInput;
+	where: PriceListWhereUniqueInput;
 };
 
 export type MutationUpsertTreatmentArgs = {
@@ -2440,6 +2588,460 @@ export type PageInfo = {
 	startCursor?: Maybe<Scalars['String']['output']>;
 };
 
+export type PriceList = Entity &
+	Node & {
+		/** The time the document was created */
+		createdAt: Scalars['DateTime']['output'];
+		/** User that created this document */
+		createdBy?: Maybe<User>;
+		/** Get the document in other stages */
+		documentInStages: Array<PriceList>;
+		/** List of PriceList versions */
+		history: Array<Version>;
+		/** The unique identifier */
+		id: Scalars['ID']['output'];
+		/** The time the document was published. Null on documents in draft stage. */
+		publishedAt?: Maybe<Scalars['DateTime']['output']>;
+		/** User that last published this document */
+		publishedBy?: Maybe<User>;
+		scheduledIn: Array<ScheduledOperation>;
+		/** System stage field */
+		stage: Stage;
+		title?: Maybe<Scalars['String']['output']>;
+		treatmentTable: Array<TreatmentTable>;
+		/** The time the document was updated */
+		updatedAt: Scalars['DateTime']['output'];
+		/** User that last updated this document */
+		updatedBy?: Maybe<User>;
+	};
+
+export type PriceListCreatedByArgs = {
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+};
+
+export type PriceListDocumentInStagesArgs = {
+	includeCurrent?: Scalars['Boolean']['input'];
+	inheritLocale?: Scalars['Boolean']['input'];
+	stages?: Array<Stage>;
+};
+
+export type PriceListHistoryArgs = {
+	limit?: Scalars['Int']['input'];
+	skip?: Scalars['Int']['input'];
+	stageOverride?: InputMaybe<Stage>;
+};
+
+export type PriceListPublishedByArgs = {
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+};
+
+export type PriceListScheduledInArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+export type PriceListTreatmentTableArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+	orderBy?: InputMaybe<TreatmentTableOrderByInput>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	where?: InputMaybe<TreatmentTableWhereInput>;
+};
+
+export type PriceListUpdatedByArgs = {
+	forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+	locales?: InputMaybe<Array<Locale>>;
+};
+
+export type PriceListConnectInput = {
+	/** Allow to specify document position in list of connected documents, will default to appending at end of list */
+	position?: InputMaybe<ConnectPositionInput>;
+	/** Document to connect */
+	where: PriceListWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type PriceListConnection = {
+	aggregate: Aggregate;
+	/** A list of edges. */
+	edges: Array<PriceListEdge>;
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+};
+
+export type PriceListCreateInput = {
+	createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+	title?: InputMaybe<Scalars['String']['input']>;
+	treatmentTable?: InputMaybe<TreatmentTableCreateManyInlineInput>;
+	updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type PriceListCreateManyInlineInput = {
+	/** Connect multiple existing PriceList documents */
+	connect?: InputMaybe<Array<PriceListWhereUniqueInput>>;
+	/** Create and connect multiple existing PriceList documents */
+	create?: InputMaybe<Array<PriceListCreateInput>>;
+};
+
+export type PriceListCreateOneInlineInput = {
+	/** Connect one existing PriceList document */
+	connect?: InputMaybe<PriceListWhereUniqueInput>;
+	/** Create and connect one PriceList document */
+	create?: InputMaybe<PriceListCreateInput>;
+};
+
+/** An edge in a connection. */
+export type PriceListEdge = {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['String']['output'];
+	/** The item at the end of the edge. */
+	node: PriceList;
+};
+
+/** Identifies documents */
+export type PriceListManyWhereInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<PriceListWhereInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<PriceListWhereInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<PriceListWhereInput>>;
+	/** Contains search across all appropriate fields. */
+	_search?: InputMaybe<Scalars['String']['input']>;
+	createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	createdAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	createdBy?: InputMaybe<UserWhereInput>;
+	documentInStages_every?: InputMaybe<PriceListWhereStageInput>;
+	documentInStages_none?: InputMaybe<PriceListWhereStageInput>;
+	documentInStages_some?: InputMaybe<PriceListWhereStageInput>;
+	id?: InputMaybe<Scalars['ID']['input']>;
+	/** All values containing the given string. */
+	id_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values ending with the given string. */
+	id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are contained in given list. */
+	id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	id_not?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not containing the given string. */
+	id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not ending with the given string */
+	id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are not contained in given list. */
+	id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** All values not starting with the given string. */
+	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values starting with the given string. */
+	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	publishedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	publishedBy?: InputMaybe<UserWhereInput>;
+	scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+	title?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	title_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	title_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	title_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	title_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** All values not starting with the given string. */
+	title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	title_starts_with?: InputMaybe<Scalars['String']['input']>;
+	treatmentTable_every?: InputMaybe<TreatmentTableWhereInput>;
+	treatmentTable_none?: InputMaybe<TreatmentTableWhereInput>;
+	treatmentTable_some?: InputMaybe<TreatmentTableWhereInput>;
+	updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	updatedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export type PriceListOrderByInput =
+	| 'createdAt_ASC'
+	| 'createdAt_DESC'
+	| 'id_ASC'
+	| 'id_DESC'
+	| 'publishedAt_ASC'
+	| 'publishedAt_DESC'
+	| 'title_ASC'
+	| 'title_DESC'
+	| 'updatedAt_ASC'
+	| 'updatedAt_DESC';
+
+export type PriceListUpdateInput = {
+	title?: InputMaybe<Scalars['String']['input']>;
+	treatmentTable?: InputMaybe<TreatmentTableUpdateManyInlineInput>;
+};
+
+export type PriceListUpdateManyInlineInput = {
+	/** Connect multiple existing PriceList documents */
+	connect?: InputMaybe<Array<PriceListConnectInput>>;
+	/** Create and connect multiple PriceList documents */
+	create?: InputMaybe<Array<PriceListCreateInput>>;
+	/** Delete multiple PriceList documents */
+	delete?: InputMaybe<Array<PriceListWhereUniqueInput>>;
+	/** Disconnect multiple PriceList documents */
+	disconnect?: InputMaybe<Array<PriceListWhereUniqueInput>>;
+	/** Override currently-connected documents with multiple existing PriceList documents */
+	set?: InputMaybe<Array<PriceListWhereUniqueInput>>;
+	/** Update multiple PriceList documents */
+	update?: InputMaybe<Array<PriceListUpdateWithNestedWhereUniqueInput>>;
+	/** Upsert multiple PriceList documents */
+	upsert?: InputMaybe<Array<PriceListUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type PriceListUpdateManyInput = {
+	title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PriceListUpdateManyWithNestedWhereInput = {
+	/** Update many input */
+	data: PriceListUpdateManyInput;
+	/** Document search */
+	where: PriceListWhereInput;
+};
+
+export type PriceListUpdateOneInlineInput = {
+	/** Connect existing PriceList document */
+	connect?: InputMaybe<PriceListWhereUniqueInput>;
+	/** Create and connect one PriceList document */
+	create?: InputMaybe<PriceListCreateInput>;
+	/** Delete currently connected PriceList document */
+	delete?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Disconnect currently connected PriceList document */
+	disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Update single PriceList document */
+	update?: InputMaybe<PriceListUpdateWithNestedWhereUniqueInput>;
+	/** Upsert single PriceList document */
+	upsert?: InputMaybe<PriceListUpsertWithNestedWhereUniqueInput>;
+};
+
+export type PriceListUpdateWithNestedWhereUniqueInput = {
+	/** Document to update */
+	data: PriceListUpdateInput;
+	/** Unique document search */
+	where: PriceListWhereUniqueInput;
+};
+
+export type PriceListUpsertInput = {
+	/** Create document if it didn't exist */
+	create: PriceListCreateInput;
+	/** Update document if it exists */
+	update: PriceListUpdateInput;
+};
+
+export type PriceListUpsertWithNestedWhereUniqueInput = {
+	/** Upsert data */
+	data: PriceListUpsertInput;
+	/** Unique document search */
+	where: PriceListWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type PriceListWhereComparatorInput = {
+	/** This field can be used to request to check if the entry is outdated by internal comparison */
+	outdated_to?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Identifies documents */
+export type PriceListWhereInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<PriceListWhereInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<PriceListWhereInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<PriceListWhereInput>>;
+	/** Contains search across all appropriate fields. */
+	_search?: InputMaybe<Scalars['String']['input']>;
+	createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	createdAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	createdAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	createdAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	createdAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	createdAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	createdAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	createdBy?: InputMaybe<UserWhereInput>;
+	documentInStages_every?: InputMaybe<PriceListWhereStageInput>;
+	documentInStages_none?: InputMaybe<PriceListWhereStageInput>;
+	documentInStages_some?: InputMaybe<PriceListWhereStageInput>;
+	id?: InputMaybe<Scalars['ID']['input']>;
+	/** All values containing the given string. */
+	id_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values ending with the given string. */
+	id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are contained in given list. */
+	id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	id_not?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not containing the given string. */
+	id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not ending with the given string */
+	id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are not contained in given list. */
+	id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** All values not starting with the given string. */
+	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values starting with the given string. */
+	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	publishedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	publishedBy?: InputMaybe<UserWhereInput>;
+	scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+	scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+	title?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	title_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	title_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	title_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	title_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	title_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** All values not starting with the given string. */
+	title_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	title_starts_with?: InputMaybe<Scalars['String']['input']>;
+	treatmentTable_every?: InputMaybe<TreatmentTableWhereInput>;
+	treatmentTable_none?: InputMaybe<TreatmentTableWhereInput>;
+	treatmentTable_some?: InputMaybe<TreatmentTableWhereInput>;
+	updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than the given value. */
+	updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values greater than or equal the given value. */
+	updatedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are contained in given list. */
+	updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+	/** All values less than the given value. */
+	updatedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values less than or equal the given value. */
+	updatedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	updatedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+	/** All values that are not contained in given list. */
+	updatedAt_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['DateTime']['input']>>
+	>;
+	updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type PriceListWhereStageInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<PriceListWhereStageInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<PriceListWhereStageInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<PriceListWhereStageInput>>;
+	/** This field contains fields which can be set as true or false to specify an internal comparison */
+	compareWithParent?: InputMaybe<PriceListWhereComparatorInput>;
+	/** Specify the stage to compare with */
+	stage?: InputMaybe<Stage>;
+};
+
+/** References PriceList record uniquely */
+export type PriceListWhereUniqueInput = {
+	id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type PublishLocaleInput = {
 	/** Locales to publish */
 	locale: Locale;
@@ -2476,6 +3078,14 @@ export type Query = {
 	offersAccordions: Array<OffersAccordion>;
 	/** Retrieve multiple offersAccordions using the Relay connection interface */
 	offersAccordionsConnection: OffersAccordionConnection;
+	/** Retrieve a single priceList */
+	priceList?: Maybe<PriceList>;
+	/** Retrieve document version */
+	priceListVersion?: Maybe<DocumentVersion>;
+	/** Retrieve multiple priceLists */
+	priceLists: Array<PriceList>;
+	/** Retrieve multiple priceLists using the Relay connection interface */
+	priceListsConnection: PriceListConnection;
 	/** Retrieve a single scheduledOperation */
 	scheduledOperation?: Maybe<ScheduledOperation>;
 	/** Retrieve multiple scheduledOperations */
@@ -2614,6 +3224,40 @@ export type QueryOffersAccordionsConnectionArgs = {
 	skip?: InputMaybe<Scalars['Int']['input']>;
 	stage?: Stage;
 	where?: InputMaybe<OffersAccordionWhereInput>;
+};
+
+export type QueryPriceListArgs = {
+	locales?: Array<Locale>;
+	stage?: Stage;
+	where: PriceListWhereUniqueInput;
+};
+
+export type QueryPriceListVersionArgs = {
+	where: VersionWhereInput;
+};
+
+export type QueryPriceListsArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: Array<Locale>;
+	orderBy?: InputMaybe<PriceListOrderByInput>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	stage?: Stage;
+	where?: InputMaybe<PriceListWhereInput>;
+};
+
+export type QueryPriceListsConnectionArgs = {
+	after?: InputMaybe<Scalars['String']['input']>;
+	before?: InputMaybe<Scalars['String']['input']>;
+	first?: InputMaybe<Scalars['Int']['input']>;
+	last?: InputMaybe<Scalars['Int']['input']>;
+	locales?: Array<Locale>;
+	orderBy?: InputMaybe<PriceListOrderByInput>;
+	skip?: InputMaybe<Scalars['Int']['input']>;
+	stage?: Stage;
+	where?: InputMaybe<PriceListWhereInput>;
 };
 
 export type QueryScheduledOperationArgs = {
@@ -2848,6 +3492,7 @@ export type ScheduledOperationAffectedDocument =
 	| Asset
 	| Gallery
 	| OffersAccordion
+	| PriceList
 	| Treatment;
 
 export type ScheduledOperationConnectInput = {
@@ -4053,6 +4698,378 @@ export type TreatmentOrderByInput =
 	| 'updatedAt_ASC'
 	| 'updatedAt_DESC';
 
+export type TreatmentTable = Entity & {
+	/** The unique identifier */
+	id: Scalars['ID']['output'];
+	/** System stage field */
+	stage: Stage;
+	treatmentName?: Maybe<Scalars['String']['output']>;
+	treatmentPrice?: Maybe<Scalars['Float']['output']>;
+};
+
+export type TreatmentTableConnectInput = {
+	/** Allow to specify document position in list of connected documents, will default to appending at end of list */
+	position?: InputMaybe<ConnectPositionInput>;
+	/** Document to connect */
+	where: TreatmentTableWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type TreatmentTableConnection = {
+	aggregate: Aggregate;
+	/** A list of edges. */
+	edges: Array<TreatmentTableEdge>;
+	/** Information to aid in pagination. */
+	pageInfo: PageInfo;
+};
+
+export type TreatmentTableCreateInput = {
+	treatmentName?: InputMaybe<Scalars['String']['input']>;
+	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type TreatmentTableCreateManyInlineInput = {
+	/** Create and connect multiple existing TreatmentTable documents */
+	create?: InputMaybe<Array<TreatmentTableCreateInput>>;
+};
+
+export type TreatmentTableCreateOneInlineInput = {
+	/** Create and connect one TreatmentTable document */
+	create?: InputMaybe<TreatmentTableCreateInput>;
+};
+
+export type TreatmentTableCreateWithPositionInput = {
+	/** Document to create */
+	data: TreatmentTableCreateInput;
+	/** Position in the list of existing component instances, will default to appending at the end of list */
+	position?: InputMaybe<ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+export type TreatmentTableEdge = {
+	/** A cursor for use in pagination. */
+	cursor: Scalars['String']['output'];
+	/** The item at the end of the edge. */
+	node: TreatmentTable;
+};
+
+/** Identifies documents */
+export type TreatmentTableManyWhereInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<TreatmentTableWhereInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<TreatmentTableWhereInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<TreatmentTableWhereInput>>;
+	/** Contains search across all appropriate fields. */
+	_search?: InputMaybe<Scalars['String']['input']>;
+	id?: InputMaybe<Scalars['ID']['input']>;
+	/** All values containing the given string. */
+	id_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values ending with the given string. */
+	id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are contained in given list. */
+	id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	id_not?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not containing the given string. */
+	id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not ending with the given string */
+	id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are not contained in given list. */
+	id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** All values not starting with the given string. */
+	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values starting with the given string. */
+	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	treatmentName?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	treatmentName_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	treatmentName_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	treatmentName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	treatmentName_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	treatmentName_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	treatmentName_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	treatmentName_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['String']['input']>>
+	>;
+	/** All values not starting with the given string. */
+	treatmentName_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	treatmentName_starts_with?: InputMaybe<Scalars['String']['input']>;
+	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
+	/** All values greater than the given value. */
+	treatmentPrice_gt?: InputMaybe<Scalars['Float']['input']>;
+	/** All values greater than or equal the given value. */
+	treatmentPrice_gte?: InputMaybe<Scalars['Float']['input']>;
+	/** All values that are contained in given list. */
+	treatmentPrice_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+	/** All values less than the given value. */
+	treatmentPrice_lt?: InputMaybe<Scalars['Float']['input']>;
+	/** All values less than or equal the given value. */
+	treatmentPrice_lte?: InputMaybe<Scalars['Float']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	treatmentPrice_not?: InputMaybe<Scalars['Float']['input']>;
+	/** All values that are not contained in given list. */
+	treatmentPrice_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['Float']['input']>>
+	>;
+};
+
+export type TreatmentTableOrderByInput =
+	| 'id_ASC'
+	| 'id_DESC'
+	| 'treatmentName_ASC'
+	| 'treatmentName_DESC'
+	| 'treatmentPrice_ASC'
+	| 'treatmentPrice_DESC';
+
+export type TreatmentTableParent = PriceList;
+
+export type TreatmentTableParentConnectInput = {
+	PriceList?: InputMaybe<PriceListConnectInput>;
+};
+
+export type TreatmentTableParentCreateInput = {
+	PriceList?: InputMaybe<PriceListCreateInput>;
+};
+
+export type TreatmentTableParentCreateManyInlineInput = {
+	/** Connect multiple existing TreatmentTableParent documents */
+	connect?: InputMaybe<Array<TreatmentTableParentWhereUniqueInput>>;
+	/** Create and connect multiple existing TreatmentTableParent documents */
+	create?: InputMaybe<Array<TreatmentTableParentCreateInput>>;
+};
+
+export type TreatmentTableParentCreateOneInlineInput = {
+	/** Connect one existing TreatmentTableParent document */
+	connect?: InputMaybe<TreatmentTableParentWhereUniqueInput>;
+	/** Create and connect one TreatmentTableParent document */
+	create?: InputMaybe<TreatmentTableParentCreateInput>;
+};
+
+export type TreatmentTableParentUpdateInput = {
+	PriceList?: InputMaybe<PriceListUpdateInput>;
+};
+
+export type TreatmentTableParentUpdateManyInlineInput = {
+	/** Connect multiple existing TreatmentTableParent documents */
+	connect?: InputMaybe<Array<TreatmentTableParentConnectInput>>;
+	/** Create and connect multiple TreatmentTableParent documents */
+	create?: InputMaybe<Array<TreatmentTableParentCreateInput>>;
+	/** Delete multiple TreatmentTableParent documents */
+	delete?: InputMaybe<Array<TreatmentTableParentWhereUniqueInput>>;
+	/** Disconnect multiple TreatmentTableParent documents */
+	disconnect?: InputMaybe<Array<TreatmentTableParentWhereUniqueInput>>;
+	/** Override currently-connected documents with multiple existing TreatmentTableParent documents */
+	set?: InputMaybe<Array<TreatmentTableParentWhereUniqueInput>>;
+	/** Update multiple TreatmentTableParent documents */
+	update?: InputMaybe<
+		Array<TreatmentTableParentUpdateWithNestedWhereUniqueInput>
+	>;
+	/** Upsert multiple TreatmentTableParent documents */
+	upsert?: InputMaybe<
+		Array<TreatmentTableParentUpsertWithNestedWhereUniqueInput>
+	>;
+};
+
+export type TreatmentTableParentUpdateManyWithNestedWhereInput = {
+	PriceList?: InputMaybe<PriceListUpdateManyWithNestedWhereInput>;
+};
+
+export type TreatmentTableParentUpdateOneInlineInput = {
+	/** Connect existing TreatmentTableParent document */
+	connect?: InputMaybe<TreatmentTableParentWhereUniqueInput>;
+	/** Create and connect one TreatmentTableParent document */
+	create?: InputMaybe<TreatmentTableParentCreateInput>;
+	/** Delete currently connected TreatmentTableParent document */
+	delete?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Disconnect currently connected TreatmentTableParent document */
+	disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Update single TreatmentTableParent document */
+	update?: InputMaybe<TreatmentTableParentUpdateWithNestedWhereUniqueInput>;
+	/** Upsert single TreatmentTableParent document */
+	upsert?: InputMaybe<TreatmentTableParentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type TreatmentTableParentUpdateWithNestedWhereUniqueInput = {
+	PriceList?: InputMaybe<PriceListUpdateWithNestedWhereUniqueInput>;
+};
+
+export type TreatmentTableParentUpsertWithNestedWhereUniqueInput = {
+	PriceList?: InputMaybe<PriceListUpsertWithNestedWhereUniqueInput>;
+};
+
+export type TreatmentTableParentWhereInput = {
+	PriceList?: InputMaybe<PriceListWhereInput>;
+};
+
+export type TreatmentTableParentWhereUniqueInput = {
+	PriceList?: InputMaybe<PriceListWhereUniqueInput>;
+};
+
+export type TreatmentTableUpdateInput = {
+	treatmentName?: InputMaybe<Scalars['String']['input']>;
+	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type TreatmentTableUpdateManyInlineInput = {
+	/** Create and connect multiple TreatmentTable component instances */
+	create?: InputMaybe<Array<TreatmentTableCreateWithPositionInput>>;
+	/** Delete multiple TreatmentTable documents */
+	delete?: InputMaybe<Array<TreatmentTableWhereUniqueInput>>;
+	/** Update multiple TreatmentTable component instances */
+	update?: InputMaybe<
+		Array<TreatmentTableUpdateWithNestedWhereUniqueAndPositionInput>
+	>;
+	/** Upsert multiple TreatmentTable component instances */
+	upsert?: InputMaybe<
+		Array<TreatmentTableUpsertWithNestedWhereUniqueAndPositionInput>
+	>;
+};
+
+export type TreatmentTableUpdateManyInput = {
+	treatmentName?: InputMaybe<Scalars['String']['input']>;
+	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type TreatmentTableUpdateManyWithNestedWhereInput = {
+	/** Update many input */
+	data: TreatmentTableUpdateManyInput;
+	/** Document search */
+	where: TreatmentTableWhereInput;
+};
+
+export type TreatmentTableUpdateOneInlineInput = {
+	/** Create and connect one TreatmentTable document */
+	create?: InputMaybe<TreatmentTableCreateInput>;
+	/** Delete currently connected TreatmentTable document */
+	delete?: InputMaybe<Scalars['Boolean']['input']>;
+	/** Update single TreatmentTable document */
+	update?: InputMaybe<TreatmentTableUpdateWithNestedWhereUniqueInput>;
+	/** Upsert single TreatmentTable document */
+	upsert?: InputMaybe<TreatmentTableUpsertWithNestedWhereUniqueInput>;
+};
+
+export type TreatmentTableUpdateWithNestedWhereUniqueAndPositionInput = {
+	/** Document to update */
+	data?: InputMaybe<TreatmentTableUpdateInput>;
+	/** Position in the list of existing component instances, will default to appending at the end of list */
+	position?: InputMaybe<ConnectPositionInput>;
+	/** Unique component instance search */
+	where: TreatmentTableWhereUniqueInput;
+};
+
+export type TreatmentTableUpdateWithNestedWhereUniqueInput = {
+	/** Document to update */
+	data: TreatmentTableUpdateInput;
+	/** Unique document search */
+	where: TreatmentTableWhereUniqueInput;
+};
+
+export type TreatmentTableUpsertInput = {
+	/** Create document if it didn't exist */
+	create: TreatmentTableCreateInput;
+	/** Update document if it exists */
+	update: TreatmentTableUpdateInput;
+};
+
+export type TreatmentTableUpsertWithNestedWhereUniqueAndPositionInput = {
+	/** Document to upsert */
+	data?: InputMaybe<TreatmentTableUpsertInput>;
+	/** Position in the list of existing component instances, will default to appending at the end of list */
+	position?: InputMaybe<ConnectPositionInput>;
+	/** Unique component instance search */
+	where: TreatmentTableWhereUniqueInput;
+};
+
+export type TreatmentTableUpsertWithNestedWhereUniqueInput = {
+	/** Upsert data */
+	data: TreatmentTableUpsertInput;
+	/** Unique document search */
+	where: TreatmentTableWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type TreatmentTableWhereInput = {
+	/** Logical AND on all given filters. */
+	AND?: InputMaybe<Array<TreatmentTableWhereInput>>;
+	/** Logical NOT on all given filters combined by AND. */
+	NOT?: InputMaybe<Array<TreatmentTableWhereInput>>;
+	/** Logical OR on all given filters. */
+	OR?: InputMaybe<Array<TreatmentTableWhereInput>>;
+	/** Contains search across all appropriate fields. */
+	_search?: InputMaybe<Scalars['String']['input']>;
+	id?: InputMaybe<Scalars['ID']['input']>;
+	/** All values containing the given string. */
+	id_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values ending with the given string. */
+	id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are contained in given list. */
+	id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	id_not?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not containing the given string. */
+	id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+	/** All values not ending with the given string */
+	id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values that are not contained in given list. */
+	id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+	/** All values not starting with the given string. */
+	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	/** All values starting with the given string. */
+	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	treatmentName?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	treatmentName_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	treatmentName_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	treatmentName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+	/** Any other value that exists and is not equal to the given value. */
+	treatmentName_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	treatmentName_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	treatmentName_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	treatmentName_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['String']['input']>>
+	>;
+	/** All values not starting with the given string. */
+	treatmentName_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	treatmentName_starts_with?: InputMaybe<Scalars['String']['input']>;
+	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
+	/** All values greater than the given value. */
+	treatmentPrice_gt?: InputMaybe<Scalars['Float']['input']>;
+	/** All values greater than or equal the given value. */
+	treatmentPrice_gte?: InputMaybe<Scalars['Float']['input']>;
+	/** All values that are contained in given list. */
+	treatmentPrice_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+	/** All values less than the given value. */
+	treatmentPrice_lt?: InputMaybe<Scalars['Float']['input']>;
+	/** All values less than or equal the given value. */
+	treatmentPrice_lte?: InputMaybe<Scalars['Float']['input']>;
+	/** Any other value that exists and is not equal to the given value. */
+	treatmentPrice_not?: InputMaybe<Scalars['Float']['input']>;
+	/** All values that are not contained in given list. */
+	treatmentPrice_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['Float']['input']>>
+	>;
+};
+
+/** References TreatmentTable record uniquely */
+export type TreatmentTableWhereUniqueInput = {
+	id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type TreatmentUpdateInput = {
 	title?: InputMaybe<Scalars['String']['input']>;
 	treatmentContent?: InputMaybe<Scalars['RichTextAST']['input']>;
@@ -4768,6 +5785,28 @@ export type OffersAccordionFragment = {
 	content?: string | null;
 };
 
+export type PriceListFragment = {
+	title?: string | null;
+	treatmentTable: Array<{
+		id: string;
+		treatmentName?: string | null;
+		treatmentPrice?: number | null;
+	}>;
+};
+
+export type PriceListQueryVariables = Exact<{ [key: string]: never }>;
+
+export type PriceListQuery = {
+	priceLists: Array<{
+		title?: string | null;
+		treatmentTable: Array<{
+			id: string;
+			treatmentName?: string | null;
+			treatmentPrice?: number | null;
+		}>;
+	}>;
+};
+
 export type TreatmentsGetListQueryVariables = Exact<{ [key: string]: never }>;
 
 export type TreatmentsGetListQuery = {
@@ -4822,6 +5861,19 @@ export const OffersAccordionFragmentDoc = new TypedDocumentString(
     `,
 	{ fragmentName: 'OffersAccordion' },
 ) as unknown as TypedDocumentString<OffersAccordionFragment, unknown>;
+export const PriceListFragmentDoc = new TypedDocumentString(
+	`
+    fragment PriceList on PriceList {
+  title
+  treatmentTable {
+    id
+    treatmentName
+    treatmentPrice
+  }
+}
+    `,
+	{ fragmentName: 'PriceList' },
+) as unknown as TypedDocumentString<PriceListFragment, unknown>;
 export const TreatmentFragmentDoc = new TypedDocumentString(
 	`
     fragment Treatment on Treatment {
@@ -4860,6 +5912,20 @@ export const OffersAccordionsDocument = new TypedDocumentString(`
 	OffersAccordionsQuery,
 	OffersAccordionsQueryVariables
 >;
+export const PriceListDocument = new TypedDocumentString(`
+    query PriceList {
+  priceLists {
+    ...PriceList
+  }
+}
+    fragment PriceList on PriceList {
+  title
+  treatmentTable {
+    id
+    treatmentName
+    treatmentPrice
+  }
+}`) as unknown as TypedDocumentString<PriceListQuery, PriceListQueryVariables>;
 export const TreatmentsGetListDocument = new TypedDocumentString(`
     query TreatmentsGetList {
   treatments {

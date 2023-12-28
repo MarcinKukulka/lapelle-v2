@@ -1,31 +1,14 @@
-import { type Treatment, columns } from './columns';
+import { columns } from './columns';
 import { DataTable } from './data-table';
+import { executeGraphql } from '@/api/grapqhlApi';
 import { Heading } from '@/components/ui/heading';
 import { SectionWrapper } from '@/components/ui/section-wrapper';
-
-async function getData(): Promise<Treatment[]> {
-	return [
-		{
-			title: 'Zabieg',
-			treatmentTable: [
-				{ id: '728ed52f', price: 100, name: 'Głowa' },
-				{ id: '728ed52f', price: 100, name: 'Głowa' },
-			],
-		},
-		{
-			title: 'Drugi zabieg',
-			treatmentTable: [
-				{ id: '728ed52f', price: 100, name: 'Głowa' },
-				{ id: '728ed52f', price: 100, name: 'Głowa' },
-			],
-		},
-	];
-}
+import { PriceListDocument } from '@/gql/graphql';
 
 export default async function PriceListPage() {
-	const data = await getData();
+	const { priceLists } = await executeGraphql(PriceListDocument);
 	return (
-		<section>
+		<section className="min-h-screen">
 			<SectionWrapper>
 				<Heading
 					textColor="text-black"
@@ -33,16 +16,22 @@ export default async function PriceListPage() {
 					lineColor="border-black"
 				/>
 				<div className="flex flex-col items-center">
-					{data.map((treatment) => {
+					{priceLists.map((treatment) => {
 						return (
 							<div
-								className="mb-12 w-full max-w-lg px-8 md:w-1/2"
+								className="mb-12 w-full max-w-3xl px-8 "
 								key={treatment.treatmentTable[0].id}
 							>
 								<h2 className="mb-4 text-center text-2xl font-semibold">
 									{treatment.title}
 								</h2>
-								<DataTable columns={columns} data={treatment.treatmentTable} />
+								<DataTable
+									columns={columns}
+									data={treatment.treatmentTable.map((item) => ({
+										...item,
+										treatmentTable: [item],
+									}))}
+								/>
 							</div>
 						);
 					})}

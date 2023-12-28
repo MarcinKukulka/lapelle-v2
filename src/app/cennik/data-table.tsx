@@ -32,7 +32,7 @@ export function DataTable<TData, TValue>({
 	});
 
 	return (
-		<div className="mx-auto max-w-5xl rounded-md border">
+		<div className="rounded-md border">
 			<Table>
 				<TableHeader className="bg-black text-gold">
 					{table.getHeaderGroups().map((headerGroup) => (
@@ -59,7 +59,7 @@ export function DataTable<TData, TValue>({
 					{table.getRowModel().rows?.length ? (
 						table.getRowModel().rows.map((row) => (
 							<TableRow
-								className="even:bg-muted"
+								className="even:bg-gold/10 hover:cursor-pointer hover:bg-gold/70"
 								key={row.id}
 								data-state={row.getIsSelected() && 'selected'}
 							>
