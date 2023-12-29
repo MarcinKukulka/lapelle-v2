@@ -22,8 +22,8 @@ const routes: RoutesProps[] = [
 	{ name: 'Home', path: '/' },
 	{ name: 'Zabiegi', path: '/zabiegi' },
 	{ name: 'Cennik', path: '/cennik' },
+	{ name: 'Galeria', path: '/galeria' },
 	{ name: 'Kontakt', path: '/kontakt' },
-	{ name: 'O nas', path: '/o-nas' },
 	{
 		name: 'Rezerwacja',
 		path: 'https://booksy.com/pl-pl/112144_la-pelle-nowoczesna-kosmetologia-agnieszka-trylinska_salon-kosmetyczny_10272_tarnow',

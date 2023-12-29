@@ -4,7 +4,7 @@ import { ContactInfo } from '@/components/ui/contact-info';
 import { ContactOpeningHours } from '@/components/ui/contact-opening-hours';
 import { SectionWrapper } from '@/components/ui/section-wrapper';
 
-export default function Kontakt() {
+export default function Contact() {
 	return (
 		<section className="bg-black">
 			<div className="flex flex-col items-center justify-center  bg-white py-20">

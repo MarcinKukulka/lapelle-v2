@@ -1,4 +1,6 @@
 import { Suspense } from 'react';
+import Link from 'next/link';
+import { Button } from '@/ui/button';
 import { Heading } from '@/ui/heading';
 
 import { SectionWrapper } from '@/ui/section-wrapper';
@@ -24,8 +26,14 @@ export const Gallery = async () => {
 					textColor="text-black"
 				/>
 				<Suspense fallback={<div>Loading...</div>}>
-					<ImagesContainer galleryImages={galleryImages} />
+					<ImagesContainer galleryImages={galleryImages} numImgs={8} />
 				</Suspense>
+
+				<Link href="/galeria" className="mt-12 flex justify-center text-lg">
+					<Button className="bg-black text-gold" type="button">
+						Zobacz więcej
+					</Button>
+				</Link>
 			</SectionWrapper>
 		</section>
 	);
