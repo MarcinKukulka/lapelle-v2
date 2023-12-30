@@ -14,7 +14,9 @@ export default async function Galeria() {
 		}));
 	return (
 		<SectionWrapper className="min-h-screen pb-12">
-			<Heading lineColor="border-black" text="Galeria" textColor="text-black" />
+			<Heading lineColor="border-black" textColor="text-black">
+				Galeria
+			</Heading>
 			<ImagesContainer galleryImages={galleryImages} />
 		</SectionWrapper>
 	);

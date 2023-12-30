@@ -20,11 +20,9 @@ export const Gallery = async () => {
 	return (
 		<section className="pb-12">
 			<SectionWrapper>
-				<Heading
-					lineColor="border-black"
-					text="Galeria"
-					textColor="text-black"
-				/>
+				<Heading lineColor="border-black" textColor="text-black">
+					Galeria
+				</Heading>
 				<Suspense fallback={<div>Loading...</div>}>
 					<ImagesContainer galleryImages={galleryImages} numImgs={8} />
 				</Suspense>

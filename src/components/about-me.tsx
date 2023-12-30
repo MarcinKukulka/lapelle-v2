@@ -7,11 +7,9 @@ export const AboutMe = () => {
 	return (
 		<section className="bg-white pt-4">
 			<SectionWrapper>
-				<Heading
-					lineColor="border-black"
-					text="O mnie"
-					textColor="text-black"
-				/>
+				<Heading lineColor="border-black" textColor="text-black">
+					O mnie
+				</Heading>
 				<div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-8 lg:flex-row">
 					<div className="mb-8 flex flex-col gap-y-8 leading-8 md:mt-12 lg:w-1/2  lg:text-base">
 						<div>
