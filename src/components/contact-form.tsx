@@ -2,8 +2,9 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import type * as z from 'zod';
 
+import { toast } from 'sonner';
 import { Textarea } from '@/ui/textarea';
 import { Button } from '@/ui/button';
 import {
@@ -15,25 +16,12 @@ import {
 	FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-
-const formSchema = z.object({
-	username: z.string().min(2, {
-		message: 'Imię musi mieć co najmniej 2 znaki.',
-	}),
-	email: z.string().email({
-		message: 'E-mail musi być poprawny.',
-	}),
-	subject: z.string().min(5, {
-		message: 'Temat wiadomości musi mieć co najmniej 5 znaków.',
-	}),
-	message: z.string().min(10, {
-		message: 'Wiadomość musi mieć co najmniej 10 znaków.',
-	}),
-});
+import { sendEmail } from '@/app/actions';
+import { contactFormSchema } from '@/lib/schema';
 
 export const ContactForm = () => {
-	const form = useForm<z.infer<typeof formSchema>>({
-		resolver: zodResolver(formSchema),
+	const form = useForm<z.infer<typeof contactFormSchema>>({
+		resolver: zodResolver(contactFormSchema),
 		defaultValues: {
 			username: '',
 			email: '',
@@ -42,13 +30,23 @@ export const ContactForm = () => {
 		},
 	});
 
-	async function onSubmit(values: z.infer<typeof formSchema>) {
-		console.log(values);
-	}
-
 	const resetForm = () => {
 		form.reset();
 	};
+
+	async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+		const result = await sendEmail(values);
+		if (result?.success) {
+			console.log({ values: result.data });
+			toast.success('Wiadomość została wysłana!');
+			resetForm();
+			return;
+		} else {
+			toast.error(
+				'Wystąpił błąd podczas wysyłania wiadomości! Spróbuj ponownie później.',
+			);
+		}
+	}
 
 	return (
 		<Form {...form}>
