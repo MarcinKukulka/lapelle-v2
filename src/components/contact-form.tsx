@@ -37,7 +37,6 @@ export const ContactForm = () => {
 	async function onSubmit(values: z.infer<typeof contactFormSchema>) {
 		const result = await sendEmail(values);
 		if (result?.success) {
-			console.log({ values: result.data });
 			toast.success('Wiadomość została wysłana!');
 			resetForm();
 			return;
@@ -123,7 +122,11 @@ export const ContactForm = () => {
 					)}
 				/>
 				<div className="flex justify-between">
-					<Button className="text-lg" type="submit">
+					<Button
+						disabled={form.formState.isSubmitting}
+						className="text-lg"
+						type="submit"
+					>
 						Wyślij
 					</Button>
 					<Button
