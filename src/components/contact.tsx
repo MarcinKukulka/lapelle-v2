@@ -10,7 +10,7 @@ export const Contact = () => {
 				<Heading lineColor="border-white" textColor="text-white">
 					Kontakt
 				</Heading>
-				<div className="mt-12 flex flex-col justify-between px-10 md:flex-row">
+				<div className="mt-12 flex flex-col justify-between px-4 sm:px-8 md:flex-row">
 					<ContactInfo />
 					<ContactOpeningHours />
 				</div>
