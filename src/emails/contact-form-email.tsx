@@ -11,12 +11,14 @@ export const ContactFormEmail = ({
 	message,
 	subject,
 }: Readonly<ContactFormEmailProps>) => (
-	<div>
-		<h2>Temat {subject}</h2>
-		<p>
-			Wiadomość od: <strong>{username}</strong> z adresu email: {email}
-		</p>
-		<h2>Treść wiadomości</h2>
+	<div className="p-4">
+		<h2>
+			Wiadomość od: <strong>{username}</strong>
+		</h2>
+		<p className="text-lg">Z adresu email: {email}</p>
+		<h2 className="text-xl">Temat:</h2>
+		<p className="pb-4">{subject}</p>
+		<h2>Treść wiadomości: </h2>
 		<p>{message}</p>
 	</div>
 );
