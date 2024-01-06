@@ -7,9 +7,7 @@ export const Contact = () => {
 	return (
 		<section className="bg-black">
 			<SectionWrapper>
-				<Heading lineColor="border-white" textColor="text-white">
-					Kontakt
-				</Heading>
+				<Heading variant="white">Kontakt</Heading>
 				<div className="mt-12 flex flex-col justify-between px-4 sm:px-8 md:flex-row">
 					<ContactInfo />
 					<ContactOpeningHours />
