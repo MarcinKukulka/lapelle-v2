@@ -20,9 +20,7 @@ export const Gallery = async () => {
 	return (
 		<section className="pb-12">
 			<SectionWrapper>
-				<Heading lineColor="border-black" textColor="text-black">
-					Galeria
-				</Heading>
+				<Heading variant="black">Galeria</Heading>
 				<Suspense fallback={<div>Loading...</div>}>
 					<ImagesContainer galleryImages={galleryImages} numImgs={8} />
 				</Suspense>

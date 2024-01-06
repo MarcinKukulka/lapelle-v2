@@ -10,9 +10,7 @@ export default async function PriceListPage() {
 	return (
 		<section className="min-h-screen">
 			<SectionWrapper>
-				<Heading textColor="text-black" lineColor="border-black">
-					Cennik
-				</Heading>
+				<Heading variant="black">Cennik</Heading>
 				<div className="flex flex-col items-center">
 					{priceLists.map((treatment) => {
 						return (

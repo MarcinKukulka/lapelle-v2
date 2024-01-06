@@ -16,9 +16,7 @@ export const Offers = async () => {
 		<section className=" bg-white py-12">
 			<SectionWrapper>
 				<div className="mx-auto max-w-screen-xl">
-					<Heading textColor="text-black" lineColor="border-black">
-						Oferta
-					</Heading>
+					<Heading variant="black">Oferta</Heading>
 					<div className="mt-10 flex w-full flex-col items-stretch px-8 md:flex-row md:justify-between md:gap-x-24 md:px-12">
 						<div className="gap-y-4 md:w-2/5">
 							<Accordion type="single" collapsible>

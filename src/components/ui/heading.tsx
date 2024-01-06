@@ -4,15 +4,18 @@ import { cn } from '@/lib/utils';
 const playfair = Playfair_Display({ subsets: ['latin'] });
 
 type HeadingProps = {
-	textColor: string;
-	lineColor: string;
+	variant: 'black' | 'white';
 	children: React.ReactNode;
 };
 
-export const Heading = ({ textColor, lineColor, children }: HeadingProps) => {
+export const Heading = ({ variant, children }: HeadingProps) => {
+	const textColor = variant === 'black' ? 'text-black' : 'text-white';
+	const lineColor = variant === 'black' ? 'border-black' : 'border-white';
+
 	const HeadingLine = (
 		<span className={cn(`block h-2 w-2/5 border-b-2 `, lineColor)} />
 	);
+
 	return (
 		<div className="flex items-center justify-center py-8">
 			{HeadingLine}
