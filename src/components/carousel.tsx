@@ -98,10 +98,18 @@ export const Carousel = () => {
 					})}
 				</div>
 				<div className="absolute bottom-0 flex h-full w-full items-center justify-between px-2 text-gold">
-					<button onClick={handlePrevSlide} className={buttonClasses}>
+					<button
+						aria-label="Previous slide"
+						onClick={handlePrevSlide}
+						className={buttonClasses}
+					>
 						<ChevronLeft />
 					</button>
-					<button onClick={handleNextSlide} className={buttonClasses}>
+					<button
+						aria-label="Next slide"
+						onClick={handleNextSlide}
+						className={buttonClasses}
+					>
 						<ChevronRight />
 					</button>
 				</div>

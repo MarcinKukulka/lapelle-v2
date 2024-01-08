@@ -8,6 +8,7 @@ export const HamburgerMenu = ({ isOpen, ...props }: HamburgerMenuProps) => {
 	const genericHamburgerLine = `h-1 w-10 my-1 rounded-full bg-gold transition ease transform duration-300`;
 	return (
 		<button
+			aria-label="Toggle Menu"
 			className="flex h-12 w-12 flex-col items-center justify-center"
 			{...props}
 		>
