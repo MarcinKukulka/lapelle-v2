@@ -37,7 +37,7 @@ export const Offers = async () => {
 							</Accordion>
 						</div>
 						<div className="leading-8 md:w-3/5">
-							<h1 className="mb-4 text-2xl font-bold text-gold">
+							<h1 className="mb-4 inline-block rounded-md bg-black/65  p-2 text-2xl font-bold text-gold">
 								Salon kosmetyczny La Pelle
 							</h1>
 							<p className="mb-4 md:text-lg ">

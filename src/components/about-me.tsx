@@ -11,10 +11,10 @@ export const AboutMe = () => {
 				<div className="mx-auto flex max-w-screen-xl flex-col gap-8 px-8 lg:flex-row">
 					<div className="mb-8 flex flex-col gap-y-8 leading-8 md:mt-12 lg:w-1/2  lg:text-base">
 						<div>
-							<h2 className="text-2xl font-bold text-gold">
+							<h2 className="mb-1 inline-block rounded-md bg-black/65 p-2 text-2xl font-bold text-gold">
 								Agnieszka Trylińska
 							</h2>
-							<p className="font-bold">mgr kosmetologii</p>
+							<p className="font-bold ">mgr kosmetologii</p>
 						</div>
 						<p>
 							Specjalizuję się w terapiach opóźniających procesy starzenia się
