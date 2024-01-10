@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const Footer = () => {
 	const date = new Date().getFullYear();
 
@@ -10,8 +12,13 @@ export const Footer = () => {
 				</p>
 				<p>&nbsp; Nowoczesna Kosmetologia Agnieszka Trylińska</p>
 			</span>
-
-			<p className="pb-4 text-xs">Created by MK</p>
+			<Link
+				target="_blank"
+				className="pb-4 text-xs"
+				href={'https://www.linkedin.com/in/marcin-kuku%C5%82ka-973b3a1b7/'}
+			>
+				Created by MK
+			</Link>
 		</footer>
 	);
 };
