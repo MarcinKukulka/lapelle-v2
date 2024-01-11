@@ -89,6 +89,7 @@ export const Carousel = () => {
 					{carouselImages.map((image) => {
 						return (
 							<Image
+								priority
 								className="max-h-[70vh] min-w-full snap-center snap-always object-cover"
 								src={image.image}
 								alt={image.alt}
