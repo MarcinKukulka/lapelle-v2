@@ -11,6 +11,22 @@ export const metadata: Metadata = {
 	title: 'La Pelle',
 	description:
 		'La Pelle Nowoczesna Kosmetologia gabinet kosmetyczny w Tarnowie. Manicure, pedicure, zabiegi oczyszczające, usuwanie trądziku, zmarszczek, blizn i rozstępów.',
+	openGraph: {
+		title: 'LaPelle',
+		description: 'La Pelle Nowoczesna Kosmetologia Agnieszka Trylińska',
+		url: 'https://lapelle-v2.vercel.app/',
+		siteName: 'LaPelle',
+		images: [
+			{
+				url: 'https://lapelle-v2.vercel.app/assets/La_Pelle_logo_prostokat.png', // Must be an absolute URL
+				width: 800,
+				height: 600,
+				alt: 'La Pelle',
+			},
+		],
+		locale: 'pl_PL',
+		type: 'website',
+	},
 };
 
 export default function RootLayout({
