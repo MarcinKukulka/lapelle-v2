@@ -8,6 +8,32 @@ import { Footer } from '@/components/footer';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+	generator: 'Next.js',
+	applicationName: 'LaPelle',
+	creator: 'Marcin Kukułka',
+	keywords: [
+		'LaPelle Tarnów',
+		'Salon piękności Tarnów',
+		'Uroda LaPelle',
+		'Zabiegi kosmetyczne LaPelle',
+		'Manicure LaPelle Tarnów',
+		'Pedicure LaPelle Tarnów',
+		'Makijaż LaPelle Tarnów',
+		'Zabiegi na twarz LaPelle Tarnów',
+		'Kosmetyczka w Tarnowie',
+		'Salon urody w Tarnowie',
+		'Profesjonalna pielęgnacja Tarnów',
+		'Piękno i relaks Tarnów',
+		'LaPelle ekskluzywne zabiegi',
+		'Naturalna pielęgnacja LaPelle',
+		'Nowoczesny salon piękności Tarnów',
+		'LaPelle profesjonalna obsługa',
+		'Promocje salon piękności Tarnów',
+	],
+	metadataBase: new URL('https://lapelle-v2.vercel.app/'),
+	alternates: {
+		canonical: '/',
+	},
 	title: 'La Pelle',
 	description:
 		'La Pelle Nowoczesna Kosmetologia gabinet kosmetyczny w Tarnowie. Manicure, pedicure, zabiegi oczyszczające, usuwanie trądziku, zmarszczek, blizn i rozstępów.',
@@ -18,7 +44,7 @@ export const metadata: Metadata = {
 		siteName: 'LaPelle',
 		images: [
 			{
-				url: 'https://lapelle-v2.vercel.app/assets/La_Pelle_logo_prostokat.png', // Must be an absolute URL
+				url: 'https://lapelle-v2.vercel.app/assets/La_Pelle_logo_prostokat.png',
 				width: 800,
 				height: 600,
 				alt: 'La Pelle',
