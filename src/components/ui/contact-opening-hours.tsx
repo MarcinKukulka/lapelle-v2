@@ -7,7 +7,7 @@ const OPENING_HOURS = [
 	{ day: 'sobota', hours: 'nieczynne' },
 	{ day: 'niedziela', hours: 'nieczynne' },
 ];
-
+// million-ignore
 export const ContactOpeningHours = () => {
 	return (
 		<div className="mx-5 mb-10 mt-10 h-5/6 border-2 border-gold p-5 text-white md:w-5/12 md:p-10">

@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 type HamburgerMenuProps = {
 	isOpen: boolean;
 } & ComponentPropsWithoutRef<'button'>;
-
+// million-ignore
 export const HamburgerMenu = ({ isOpen, ...props }: HamburgerMenuProps) => {
 	const genericHamburgerLine = `h-1 w-10 my-1 rounded-full bg-gold transition ease transform duration-300`;
 	return (

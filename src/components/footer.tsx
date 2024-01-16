@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+// million-ignore
 export const Footer = () => {
 	const date = new Date().getFullYear();
 

@@ -11,6 +11,7 @@ const carouselImages = [
 	{ image: carouselImage2, url: '', alt: '2' },
 	{ image: carouselImage3, url: '', alt: '3' },
 ];
+// million-ignore
 
 export const Carousel = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,7 +25,7 @@ export const Carousel = () => {
 			} else {
 				setCurrentSlide(currentSlide + 1);
 			}
-		}, 3000);
+		}, 4000);
 
 		return () => clearInterval(interval);
 	}, [currentSlide]);
