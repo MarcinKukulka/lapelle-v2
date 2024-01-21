@@ -17,14 +17,14 @@ export const Offers = async () => {
 			<SectionWrapper>
 				<div className="mx-auto max-w-screen-xl">
 					<Heading variant="black">Oferta</Heading>
-					<div className="flex w-full flex-col-reverse items-stretch px-8 md:mt-12 md:flex-row md:justify-between md:gap-x-12 md:px-12">
+					<div className="flex h-full w-full flex-col-reverse items-stretch px-8 md:mt-12 md:flex-row md:justify-between md:gap-x-12 md:px-12">
 						<div className="mt-12 gap-y-4 md:mt-0 md:w-3/6">
 							<Accordion type="single" collapsible>
 								{offersAccordions.map(({ id, title, content }) => {
 									return (
 										<AccordionItem
 											key={id}
-											className="mb-3 border border-black/20 px-3 leading-8 hover:bg-gold/60 data-[state=open]:bg-gold/40"
+											className="mb-3 max-h-52 border border-black/20 px-3 leading-8 hover:bg-gold/60 data-[state=open]:bg-gold/40"
 											value={id.toString()}
 										>
 											<AccordionTrigger className="font-semibold hover:no-underline data-[state=open]:mb-3 data-[state=open]:border-b data-[state=open]:border-b-black/30 ">
