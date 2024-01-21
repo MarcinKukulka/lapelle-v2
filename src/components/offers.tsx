@@ -13,12 +13,12 @@ export const Offers = async () => {
 	const { offersAccordions } = await executeGraphql(OffersAccordionsDocument);
 
 	return (
-		<section className=" bg-white py-12">
+		<section className="bg-white py-12">
 			<SectionWrapper>
 				<div className="mx-auto max-w-screen-xl">
 					<Heading variant="black">Oferta</Heading>
-					<div className="mt-10 flex w-full flex-col items-stretch px-8 md:flex-row md:justify-between md:gap-x-24 md:px-12">
-						<div className="gap-y-4 md:w-2/5">
+					<div className="flex w-full flex-col-reverse items-stretch px-8 md:mt-12 md:flex-row md:justify-between md:gap-x-12 md:px-12">
+						<div className="mt-12 gap-y-4 md:mt-0 md:w-3/6">
 							<Accordion type="single" collapsible>
 								{offersAccordions.map(({ id, title, content }) => {
 									return (
@@ -36,8 +36,8 @@ export const Offers = async () => {
 								})}
 							</Accordion>
 						</div>
-						<div className="leading-8 md:w-3/5">
-							<h1 className="mb-4 inline-block rounded-md bg-black/65  p-2 text-2xl font-bold text-gold">
+						<div className="leading-8 md:w-3/6">
+							<h1 className="mb-4 mt-8 inline-block rounded-md bg-black/65 p-2  text-2xl font-bold text-gold md:mt-0">
 								Salon kosmetyczny La Pelle
 							</h1>
 							<p className="mb-4 md:text-lg ">
