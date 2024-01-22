@@ -51,7 +51,7 @@ export const Navbar = () => {
 				<NavigationMenuItem>
 					<Link href={routes[0].path}>
 						<Image
-							className="h-16 w-32"
+							className="h-16 w-32 min-w-32"
 							onClick={handleOpenNav}
 							src={Logo}
 							alt="Logo La Pelle"
