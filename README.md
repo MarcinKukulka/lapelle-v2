@@ -1,4 +1,4 @@
-# LaPelle beauty saloon wrbsite 
+# LaPelle beauty saloon website 
 
 ## Overview
 
