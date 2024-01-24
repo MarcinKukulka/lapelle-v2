@@ -1,4 +1,4 @@
-# LaPelle Website
+# LaPelle beauty saloon website 
 
 ## Overview
 
