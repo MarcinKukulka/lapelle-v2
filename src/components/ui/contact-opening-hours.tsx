@@ -1,9 +1,9 @@
 const OPENING_HOURS = [
-	{ day: 'poniedziałek', hours: '09:00 - 17:00' },
-	{ day: 'wtorek', hours: '09:00 - 17:00' },
-	{ day: 'środa', hours: '09:00 - 17:00' },
-	{ day: 'czwartek', hours: '09:00 - 17:00' },
-	{ day: 'piątek', hours: '09:00 - 17:00' },
+	{ day: 'poniedziałek', hours: '09:00 - 16:00' },
+	{ day: 'wtorek', hours: '09:00 - 16:00' },
+	{ day: 'środa', hours: '09:00 - 16:00' },
+	{ day: 'czwartek', hours: '09:00 - 16:00' },
+	{ day: 'piątek', hours: '09:00 - 16:00' },
 	{ day: 'sobota', hours: 'nieczynne' },
 	{ day: 'niedziela', hours: 'nieczynne' },
 ];
