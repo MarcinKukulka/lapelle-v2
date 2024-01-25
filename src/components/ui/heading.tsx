@@ -13,7 +13,12 @@ export const Heading = ({ variant, children }: HeadingProps) => {
 	const lineColor = variant === 'black' ? 'border-black' : 'border-white';
 
 	const HeadingLine = (
-		<span className={cn(`block h-2 w-2/5 border-b-2 `, lineColor)} />
+		<span
+			className={cn(
+				`block h-2 w-3/12 border-b-2 md:w-2/6 lg:w-4/5 `,
+				lineColor,
+			)}
+		/>
 	);
 
 	return (
