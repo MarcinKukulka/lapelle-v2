@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { type Route } from 'next';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { ActiveLink } from '@/ui/active-link';
 import { HamburgerMenu } from '@/ui/hamburger-menu';
 import Logo from '@/assets/La_Pelle_logo_prostokat.png';
 import {
@@ -70,15 +71,16 @@ export const Navbar = () => {
 			>
 				{routes.map(({ name, path }) => {
 					return (
-						<NavigationMenuItem className=" flex md:justify-between" key={name}>
-							<Link
+						<NavigationMenuItem className="flex md:justify-between" key={name}>
+							<ActiveLink
+								activeClassName="border-b-2 border-gold pb-1"
 								className="after:block after:scale-0 after:border-b-2 after:border-gold after:pb-1 after:transition-transform after:duration-300 after:hover:scale-100"
 								href={path}
 								onClick={handleOpenNav}
 								target={name === 'Rezerwacja' ? '_blank' : ''}
 							>
 								{name}
-							</Link>
+							</ActiveLink>
 						</NavigationMenuItem>
 					);
 				})}
