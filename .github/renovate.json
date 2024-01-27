@@ -1,10 +1,7 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:base"],
-    "baseBranches": ["dependency-update"],
-    "dependencyDashboard": true,
-    "schedule": [
-        "noon"
-    ]
-  }
-  
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:base"],
+	"baseBranches": ["dependency-update"],
+	"dependencyDashboard": true,
+	"schedule": "after 6am and before 6pm"
+}
