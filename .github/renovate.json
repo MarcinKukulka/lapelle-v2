@@ -3,6 +3,8 @@
     "extends": ["config:base"],
     "baseBranches": ["dependency-update"],
     "dependencyDashboard": true,
-    "schedule": ["every day"]
+    "schedule": [
+        "noon"
+    ]
   }
   
