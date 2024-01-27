@@ -2,5 +2,6 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:base"],
 	"baseBranches": ["dependency-update"],
-	"schedule": "after 6am and before 6pm"
+	"schedule": "after 6am and before 6pm",
+	"automerge": true
 }
