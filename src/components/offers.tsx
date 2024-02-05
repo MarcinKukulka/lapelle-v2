@@ -24,7 +24,7 @@ export const Offers = async () => {
 									return (
 										<AccordionItem
 											key={id}
-											className="mb-3 max-h-52 border border-black/20 px-3 leading-8 hover:bg-gold/60 data-[state=open]:bg-gold/40"
+											className="mb-3 border border-black/20 px-3 leading-8 hover:bg-gold/60 data-[state=open]:bg-gold/40"
 											value={id.toString()}
 										>
 											<AccordionTrigger className="font-semibold hover:no-underline data-[state=open]:mb-3 data-[state=open]:border-b data-[state=open]:border-b-black/30 ">
