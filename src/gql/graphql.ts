@@ -5843,7 +5843,7 @@ export class TypedDocumentString<TResult, TVariables>
 export const GalleryFragmentDoc = new TypedDocumentString(
 	`
     fragment Gallery on Gallery {
-  image {
+  image(first: 30) {
     url
     fileName
   }
@@ -5893,7 +5893,7 @@ export const GalleryDocument = new TypedDocumentString(`
   }
 }
     fragment Gallery on Gallery {
-  image {
+  image(first: 30) {
     url
     fileName
   }
