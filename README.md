@@ -1,5 +1,8 @@
 # LaPelle beauty saloon website 
 
+The website is currently deployed on Vercel and can be accessed at: 
+ [https://lapelle-v2.vercel.app/](https://lapelle-v2.vercel.app/).
+ 
 ## Overview
 
 Welcome to the repository of LaPelle, a modern and responsive website designed for showcasing beauty saloon. This website is built using cutting-edge technologies including Next.js 14, TypeScript, TailwindCSS, GraphQL, ZOD, and react-hook-form, ensuring a robust, scalable, and maintainable codebase.
@@ -20,5 +23,3 @@ Welcome to the repository of LaPelle, a modern and responsive website designed f
 - **Content Management**: Allows the website owner to manage the website content via Hygraph.
 - **SEO Optimization**: Enhanced with Next.js for better search engine visibility.
 
-The website is currently deployed on Vercel and can be accessed at: 
- [https://lapelle-v2.vercel.app/](https://lapelle-v2.vercel.app/).
