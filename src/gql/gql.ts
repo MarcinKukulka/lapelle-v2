@@ -12,7 +12,7 @@ import * as types from './graphql';
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-	'fragment Gallery on Gallery {\n  image {\n    url\n    fileName\n  }\n}':
+	'fragment Gallery on Gallery {\n  image(first: 30) {\n    url\n    fileName\n  }\n}':
 		types.GalleryFragmentDoc,
 	'query Gallery {\n  galleries {\n    ...Gallery\n  }\n}':
 		types.GalleryDocument,
@@ -34,7 +34,7 @@ const documents = {
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-	source: 'fragment Gallery on Gallery {\n  image {\n    url\n    fileName\n  }\n}',
+	source: 'fragment Gallery on Gallery {\n  image(first: 30) {\n    url\n    fileName\n  }\n}',
 ): typeof import('./graphql').GalleryFragmentDoc;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.

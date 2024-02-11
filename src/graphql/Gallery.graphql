@@ -1,5 +1,5 @@
 fragment Gallery on Gallery {
-    image {
+    image(first: 30) {
         url
         fileName
     }

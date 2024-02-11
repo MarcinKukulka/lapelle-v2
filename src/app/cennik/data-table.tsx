@@ -48,7 +48,7 @@ export function DataTable<TData, TValue>({
 											: flexRender(
 													header.column.columnDef.header,
 													header.getContext(),
-											  )}
+												)}
 									</TableHead>
 								);
 							})}
@@ -65,7 +65,7 @@ export function DataTable<TData, TValue>({
 							>
 								{row.getVisibleCells().map((cell) => (
 									<TableCell
-										className='even:text-right even:after:content-["zł"]'
+										className='even:text-nowrap even:text-right even:after:content-["zł"]'
 										key={cell.id}
 									>
 										{flexRender(cell.column.columnDef.cell, cell.getContext())}{' '}
