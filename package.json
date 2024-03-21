@@ -24,7 +24,6 @@
 		"@radix-ui/react-slot": "^1.0.2",
 		"@tanstack/react-table": "^8.11.8",
 		"class-variance-authority": "^0.7.0",
-		"clsx": "^2.1.0",
 		"lucide-react": "^0.360.0",
 		"million": "^3.0.2",
 		"next": "14.1.4",
