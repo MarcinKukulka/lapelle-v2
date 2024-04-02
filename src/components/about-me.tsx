@@ -1,9 +1,30 @@
+'use client';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { SectionWrapper } from '@/ui/section-wrapper';
 import { Heading } from '@/ui/heading';
 import AgnieszkaImg from '@/assets/about_me.jpg';
+import { splitStringUsingRegex } from '@/lib/utils';
+
+const firstParagraph =
+	'Specjalizuję się w terapiach opóźniających procesy starzenia się skóry, redukcji blizn i rozstępów. Moim głównym celem jest zachowanie pięknego i zdrowego wyglądu Klientów na dłużej. Nie chodzi o to by być wiecznie młodym, lecz by zestarzeć się później i piękniej.';
+
+const secondParagraph =
+	'Nieustannie doskonalę swoje umiejętności uczestnicząc w szkoleniach pod okiem ekspertów kosmetologii i medycyny estetycznej, a także licznych konferencjach branżowych, co pozwala mi być na bieżąco z najnowszymi trendami.';
+
+const thirdParagraph =
+	'Moją „małą fascynacją” jest chemia kosmetyczna, tak ważna choć niedoceniania dziedzina nauki w pracy kosmetologa. Dlatego ogromną uwagę przykładam także do preparatów, które stosuję wykonując poszczególne zabiegi. Używam wyłącznie produktów innowacyjnych marek profesjonalnych o potwierdzonych efektach działania. Swoją ofertę zbudowałam m.in. w oparciu o asortyment firmy Rhonda Allison, Revitacare czy Mesoestetic. Kieruję się potrzebami klientów – nowe innowacje w mojej ofercie często inspirowane są potrzebami konkretnych klientów.';
 
 export const AboutMe = () => {
+	const firstParagraphChar = splitStringUsingRegex(firstParagraph);
+	const secondParagraphChar = splitStringUsingRegex(secondParagraph);
+	const thirdParagraphChar = splitStringUsingRegex(thirdParagraph);
+
+	const charVariants = {
+		hidden: { opacity: 0 },
+		reveal: { opacity: 1 },
+	};
+
 	return (
 		<section className="bg-white pt-4">
 			<SectionWrapper>
@@ -16,30 +37,49 @@ export const AboutMe = () => {
 							</h2>
 							<p className="font-bold ">mgr kosmetologii</p>
 						</div>
-						<p>
-							Specjalizuję się w terapiach opóźniających procesy starzenia się
-							skóry, redukcji blizn i rozstępów. Moim głównym celem jest
-							zachowanie pięknego i zdrowego wyglądu Klientów na dłużej. Nie
-							chodzi o to by być wiecznie młodym, lecz by zestarzeć się później
-							i piękniej.
-						</p>
-						<p>
-							Nieustannie doskonalę swoje umiejętności uczestnicząc w
-							specjalistycznych szkoleniach pod okiem ekspertów kosmetologii i
-							medycyny estetycznej, a także licznych konferencjach branżowych,
-							co pozwala mi być na bieżąco z najnowszymi trendami.
-						</p>
-						<p>
-							Moją „małą fascynacją” jest chemia kosmetyczna, tak ważna choć
-							niedoceniania dziedzina nauki w pracy kosmetologa. Dlatego ogromną
-							uwagę przykładam także do preparatów, które stosuję wykonując
-							poszczególne zabiegi. Używam wyłącznie produktów innowacyjnych
-							marek profesjonalnych o potwierdzonych efektach działania. Swoją
-							ofertę zbudowałam m.in. w oparciu o asortyment firmy Rhonda
-							Allison, Revitacare czy Mesoestetic. Kieruję się potrzebami
-							klientów – nowe innowacje w mojej ofercie często inspirowane są
-							potrzebami konkretnych klientów.
-						</p>
+						<motion.div
+							initial="hidden"
+							whileInView={'reveal'}
+							variants={charVariants}
+							transition={{ staggerChildren: 0.02 }}
+							className="flex flex-col gap-y-4 text-lg"
+							viewport={{ once: true }}
+						>
+							<motion.p>
+								{firstParagraphChar.map((char) => (
+									<motion.span
+										key={char}
+										variants={charVariants}
+										transition={{ duration: 0.1 }}
+									>
+										{char}
+									</motion.span>
+								))}
+							</motion.p>
+							<motion.p>
+								{secondParagraphChar.map((char) => (
+									<motion.span
+										key={char}
+										variants={charVariants}
+										transition={{ duration: 0.1 }}
+									>
+										{char}
+									</motion.span>
+								))}
+							</motion.p>
+
+							<motion.p>
+								{thirdParagraphChar.map((char) => (
+									<motion.span
+										key={char}
+										variants={charVariants}
+										transition={{ duration: 0.1 }}
+									>
+										{char}
+									</motion.span>
+								))}
+							</motion.p>
+						</motion.div>
 					</div>
 					<Image
 						src={AgnieszkaImg}
