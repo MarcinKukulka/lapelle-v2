@@ -19,7 +19,7 @@ export const AboutMe = () => {
 	const firstParagraphChar = splitStringUsingRegex(firstParagraph);
 	const secondParagraphChar = splitStringUsingRegex(secondParagraph);
 	const thirdParagraphChar = splitStringUsingRegex(thirdParagraph);
-
+	console.log(firstParagraphChar);
 	const charVariants = {
 		hidden: { opacity: 0 },
 		reveal: { opacity: 1 },
@@ -42,40 +42,40 @@ export const AboutMe = () => {
 							whileInView={'reveal'}
 							variants={charVariants}
 							transition={{ staggerChildren: 0.02 }}
-							className="flex flex-col gap-y-4 text-lg"
+							className="flex flex-col gap-y-4 text-base"
 							viewport={{ once: true }}
 						>
 							<motion.p>
-								{firstParagraphChar.map((char) => (
+								{firstParagraphChar.map((word, index) => (
 									<motion.span
-										key={char}
+										key={index}
 										variants={charVariants}
-										transition={{ duration: 0.1 }}
+										transition={{ duration: 0.5 }}
 									>
-										{char}
+										{word + ' '}
 									</motion.span>
 								))}
 							</motion.p>
 							<motion.p>
-								{secondParagraphChar.map((char) => (
+								{secondParagraphChar.map((word, index) => (
 									<motion.span
-										key={char}
+										key={index}
 										variants={charVariants}
-										transition={{ duration: 0.1 }}
+										transition={{ duration: 0.5 }}
 									>
-										{char}
+										{word + ' '}
 									</motion.span>
 								))}
 							</motion.p>
 
 							<motion.p>
-								{thirdParagraphChar.map((char) => (
+								{thirdParagraphChar.map((word, index) => (
 									<motion.span
-										key={char}
+										key={index}
 										variants={charVariants}
-										transition={{ duration: 0.1 }}
+										transition={{ duration: 0.5 }}
 									>
-										{char}
+										{word + ' '}
 									</motion.span>
 								))}
 							</motion.p>

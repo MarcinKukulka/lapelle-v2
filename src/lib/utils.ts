@@ -25,13 +25,13 @@ export const readImagesFromGallery = async (
 };
 
 export const splitStringUsingRegex = (str: string): string[] => {
-	const characters: string[] = [];
-	const regex = /[\s\S]/gu;
+	const words: string[] = [];
+	const regex = /\S+/g;
 
 	let match;
 
 	while ((match = regex.exec(str)) !== null) {
-		characters.push(match[0]);
+		words.push(match[0]);
 	}
-	return characters;
+	return words;
 };
