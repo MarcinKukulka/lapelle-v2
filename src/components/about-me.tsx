@@ -19,7 +19,6 @@ export const AboutMe = () => {
 	const firstParagraphChar = splitStringUsingRegex(firstParagraph);
 	const secondParagraphChar = splitStringUsingRegex(secondParagraph);
 	const thirdParagraphChar = splitStringUsingRegex(thirdParagraph);
-	console.log(firstParagraphChar);
 	const charVariants = {
 		hidden: { opacity: 0 },
 		reveal: { opacity: 1 },
