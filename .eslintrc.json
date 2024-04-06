@@ -71,7 +71,7 @@
 		"@typescript-eslint/require-await": "off",
 
 		// make sure to `await` inside try…catch
-		"@typescript-eslint/return-await": ["error", "in-try-catch"],
+		"@typescript-eslint/return-await": "error",
 
 		// allow unused vars prefixed with `_`
 		"@typescript-eslint/no-unused-vars": [
