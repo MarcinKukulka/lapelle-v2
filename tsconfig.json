@@ -36,6 +36,6 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		".graphqlrc.ts"
-	],
+, "eslint.config.mjs"	],
 	"exclude": ["node_modules"]
 }
