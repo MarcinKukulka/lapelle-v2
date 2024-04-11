@@ -28,7 +28,7 @@
 		"class-variance-authority": "^0.7.0",
 		"lucide-react": "^0.366.0",
 		"clsx": "^2.1.0",
-		"eslint": "8.57.0",
+		"eslint": "9.0.0",
 		"eslint-config-next": "^14.1.4",
 		"eslint-config-standard": "^17.1.0",
 		"eslint-plugin-import": "^2.29.1",
