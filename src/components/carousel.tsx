@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import carouselImage1 from '@/assets/carousel/dermobrazja.jpg';
+import carouselImage1 from '@/assets/carousel/darmowa konsultacja.png';
 import carouselImage2 from '@/assets/carousel/header1.jpg';
 import carouselImage3 from '@/assets/carousel/voucher_podarunkowy.jpg';
 
@@ -50,14 +50,14 @@ export const Carousel = () => {
 		<div className="mx-auto">
 			<div className="relative overflow-hidden">
 				<div
-					className="flex snap-x snap-mandatory transition-transform duration-500 ease-in-out"
+					className="flex transition-transform duration-500 ease-in-out"
 					style={{ transform: `translateX(-${currentSlide * 100}%)` }}
 				>
 					{carouselImages.map((image) => {
 						return (
 							<Image
 								priority={image === carouselImages[0] ? true : false}
-								className="max-h-[70vh] min-w-full snap-center snap-always object-cover"
+								className="max-h-[70vh] min-w-full object-cover 2xl:object-contain "
 								src={image.image}
 								alt={image.alt}
 								key={image.alt}

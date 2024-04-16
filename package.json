@@ -26,7 +26,6 @@
 		"@typescript-eslint/eslint-plugin": "7.7.0",
 		"@typescript-eslint/parser": "7.7.0",
 		"class-variance-authority": "^0.7.0",
-		"lucide-react": "^0.366.0",
 		"clsx": "^2.1.0",
 		"lucide-react": "^0.368.0",
 		"eslint-config-next": "^14.2.0",
