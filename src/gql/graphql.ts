@@ -3149,6 +3149,7 @@ export type QueryAssetsConnectionArgs = {
 };
 
 export type QueryEntitiesArgs = {
+	locales?: InputMaybe<Array<Locale>>;
 	where: Array<EntityWhereInput>;
 };
 
@@ -4703,6 +4704,7 @@ export type TreatmentTable = Entity & {
 	id: Scalars['ID']['output'];
 	/** System stage field */
 	stage: Stage;
+	treatmentDescription?: Maybe<Scalars['String']['output']>;
 	treatmentName?: Maybe<Scalars['String']['output']>;
 	treatmentPrice?: Maybe<Scalars['Float']['output']>;
 };
@@ -4724,6 +4726,7 @@ export type TreatmentTableConnection = {
 };
 
 export type TreatmentTableCreateInput = {
+	treatmentDescription?: InputMaybe<Scalars['String']['input']>;
 	treatmentName?: InputMaybe<Scalars['String']['input']>;
 	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
 };
@@ -4782,6 +4785,29 @@ export type TreatmentTableManyWhereInput = {
 	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
 	/** All values starting with the given string. */
 	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	treatmentDescription?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	treatmentDescription_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	treatmentDescription_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	treatmentDescription_in?: InputMaybe<
+		Array<InputMaybe<Scalars['String']['input']>>
+	>;
+	/** Any other value that exists and is not equal to the given value. */
+	treatmentDescription_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	treatmentDescription_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	treatmentDescription_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	treatmentDescription_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['String']['input']>>
+	>;
+	/** All values not starting with the given string. */
+	treatmentDescription_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	treatmentDescription_starts_with?: InputMaybe<Scalars['String']['input']>;
 	treatmentName?: InputMaybe<Scalars['String']['input']>;
 	/** All values containing the given string. */
 	treatmentName_contains?: InputMaybe<Scalars['String']['input']>;
@@ -4825,6 +4851,8 @@ export type TreatmentTableManyWhereInput = {
 export type TreatmentTableOrderByInput =
 	| 'id_ASC'
 	| 'id_DESC'
+	| 'treatmentDescription_ASC'
+	| 'treatmentDescription_DESC'
 	| 'treatmentName_ASC'
 	| 'treatmentName_DESC'
 	| 'treatmentPrice_ASC'
@@ -4915,6 +4943,7 @@ export type TreatmentTableParentWhereUniqueInput = {
 };
 
 export type TreatmentTableUpdateInput = {
+	treatmentDescription?: InputMaybe<Scalars['String']['input']>;
 	treatmentName?: InputMaybe<Scalars['String']['input']>;
 	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
 };
@@ -4935,6 +4964,7 @@ export type TreatmentTableUpdateManyInlineInput = {
 };
 
 export type TreatmentTableUpdateManyInput = {
+	treatmentDescription?: InputMaybe<Scalars['String']['input']>;
 	treatmentName?: InputMaybe<Scalars['String']['input']>;
 	treatmentPrice?: InputMaybe<Scalars['Float']['input']>;
 };
@@ -5025,6 +5055,29 @@ export type TreatmentTableWhereInput = {
 	id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
 	/** All values starting with the given string. */
 	id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+	treatmentDescription?: InputMaybe<Scalars['String']['input']>;
+	/** All values containing the given string. */
+	treatmentDescription_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values ending with the given string. */
+	treatmentDescription_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are contained in given list. */
+	treatmentDescription_in?: InputMaybe<
+		Array<InputMaybe<Scalars['String']['input']>>
+	>;
+	/** Any other value that exists and is not equal to the given value. */
+	treatmentDescription_not?: InputMaybe<Scalars['String']['input']>;
+	/** All values not containing the given string. */
+	treatmentDescription_not_contains?: InputMaybe<Scalars['String']['input']>;
+	/** All values not ending with the given string */
+	treatmentDescription_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values that are not contained in given list. */
+	treatmentDescription_not_in?: InputMaybe<
+		Array<InputMaybe<Scalars['String']['input']>>
+	>;
+	/** All values not starting with the given string. */
+	treatmentDescription_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+	/** All values starting with the given string. */
+	treatmentDescription_starts_with?: InputMaybe<Scalars['String']['input']>;
 	treatmentName?: InputMaybe<Scalars['String']['input']>;
 	/** All values containing the given string. */
 	treatmentName_contains?: InputMaybe<Scalars['String']['input']>;
@@ -5791,6 +5844,7 @@ export type PriceListFragment = {
 		id: string;
 		treatmentName?: string | null;
 		treatmentPrice?: number | null;
+		treatmentDescription?: string | null;
 	}>;
 };
 
@@ -5803,6 +5857,7 @@ export type PriceListQuery = {
 			id: string;
 			treatmentName?: string | null;
 			treatmentPrice?: number | null;
+			treatmentDescription?: string | null;
 		}>;
 	}>;
 };
@@ -5869,6 +5924,7 @@ export const PriceListFragmentDoc = new TypedDocumentString(
     id
     treatmentName
     treatmentPrice
+    treatmentDescription
   }
 }
     `,
@@ -5924,6 +5980,7 @@ export const PriceListDocument = new TypedDocumentString(`
     id
     treatmentName
     treatmentPrice
+    treatmentDescription
   }
 }`) as unknown as TypedDocumentString<PriceListQuery, PriceListQueryVariables>;
 export const TreatmentsGetListDocument = new TypedDocumentString(`

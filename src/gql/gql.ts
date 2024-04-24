@@ -20,7 +20,7 @@ const documents = {
 		types.OffersAccordionsDocument,
 	'fragment OffersAccordion on OffersAccordion {\n  id\n  title\n  content\n}':
 		types.OffersAccordionFragmentDoc,
-	'fragment PriceList on PriceList {\n  title\n  treatmentTable {\n    id\n    treatmentName\n    treatmentPrice\n  }\n}':
+	'fragment PriceList on PriceList {\n  title\n  treatmentTable {\n    id\n    treatmentName\n    treatmentPrice\n    treatmentDescription\n  }\n}':
 		types.PriceListFragmentDoc,
 	'query PriceList {\n  priceLists {\n    ...PriceList\n  }\n}':
 		types.PriceListDocument,
@@ -58,7 +58,7 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-	source: 'fragment PriceList on PriceList {\n  title\n  treatmentTable {\n    id\n    treatmentName\n    treatmentPrice\n  }\n}',
+	source: 'fragment PriceList on PriceList {\n  title\n  treatmentTable {\n    id\n    treatmentName\n    treatmentPrice\n    treatmentDescription\n  }\n}',
 ): typeof import('./graphql').PriceListFragmentDoc;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
