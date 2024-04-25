@@ -15,6 +15,12 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
@@ -59,17 +65,27 @@ export function DataTable<TData, TValue>({
 					{table.getRowModel().rows?.length ? (
 						table.getRowModel().rows.map((row) => (
 							<TableRow
-								className="even:bg-gold/10 hover:cursor-pointer hover:bg-gold/70"
+								className="even:bg-gold/10 hover:cursor-pointer hover:bg-gold/70 "
 								key={row.id}
 								data-state={row.getIsSelected() && 'selected'}
 							>
 								{row.getVisibleCells().map((cell) => (
-									<TableCell
-										className='even:text-nowrap even:text-right even:after:content-["zł"]'
-										key={cell.id}
-									>
-										{flexRender(cell.column.columnDef.cell, cell.getContext())}{' '}
-									</TableCell>
+									<TooltipProvider key={cell.id}>
+										<Tooltip>
+											<TooltipTrigger asChild>
+												<TableCell
+													className='even:text-nowrap even:text-right even:after:content-["zł"]'
+													key={cell.id}
+												>
+													{flexRender(
+														cell.column.columnDef.cell,
+														cell.getContext(),
+													)}
+													{<TooltipContent>W budowie...</TooltipContent>}
+												</TableCell>
+											</TooltipTrigger>
+										</Tooltip>
+									</TooltipProvider>
 								))}
 							</TableRow>
 						))
