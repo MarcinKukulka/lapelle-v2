@@ -20,6 +20,6 @@ Welcome to the repository of LaPelle, a modern and responsive website designed f
 
 - **Responsive Design**: Ensures a seamless user experience across various devices and screen sizes.
 - **Email Message**: Allows users to send messages to the website owner.
-- **Content Management**: Allows the website owner to manage the website content via Hygraph.
+- **Content Management**: Allows the website owner to manage the website content via Hygraph with GRAPHQL.
 - **SEO Optimization**: Enhanced with Next.js for better search engine visibility.
 
