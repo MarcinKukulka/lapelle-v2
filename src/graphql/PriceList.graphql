@@ -1,8 +1,9 @@
 fragment PriceList on PriceList {
-    title 
-    treatmentTable {
-        id
-        treatmentName
-        treatmentPrice
-    }
+	title
+	treatmentTable {
+		id
+		treatmentName
+		treatmentPrice
+		treatmentDescription
+	}
 }
