@@ -17,7 +17,6 @@ import {
 } from '@/components/ui/table';
 import {
 	Tooltip,
-	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from '@/components/ui/tooltip';
@@ -81,7 +80,7 @@ export function DataTable<TData, TValue>({
 														cell.column.columnDef.cell,
 														cell.getContext(),
 													)}
-													{<TooltipContent>W budowie...</TooltipContent>}
+													{/* {<TooltipContent>W budowie...</TooltipContent>} */}
 												</TableCell>
 											</TooltipTrigger>
 										</Tooltip>
