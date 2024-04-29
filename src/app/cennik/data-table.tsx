@@ -73,7 +73,7 @@ export function DataTable<TData, TValue>({
 										<Tooltip>
 											<TooltipTrigger asChild>
 												<TableCell
-													className='even:text-nowrap even:text-right even:after:content-["zł"]'
+													className='even:text-nowrap even:text-right even:after:content-["\00a0zł"]'
 													key={cell.id}
 												>
 													{flexRender(
