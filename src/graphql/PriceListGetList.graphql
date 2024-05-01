@@ -1,5 +1,5 @@
 query PriceList {
-    priceLists {
+    priceLists(first: 50) {
         ...PriceList
     }
 }

@@ -5970,7 +5970,7 @@ export const OffersAccordionsDocument = new TypedDocumentString(`
 >;
 export const PriceListDocument = new TypedDocumentString(`
     query PriceList {
-  priceLists {
+  priceLists(first: 50) {
     ...PriceList
   }
 }
