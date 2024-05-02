@@ -19,6 +19,7 @@ import {
 	Tooltip,
 	TooltipProvider,
 	TooltipTrigger,
+	TooltipContent,
 } from '@/components/ui/tooltip';
 
 interface DataTableProps<TData, TValue> {
@@ -80,7 +81,18 @@ export function DataTable<TData, TValue>({
 														cell.column.columnDef.cell,
 														cell.getContext(),
 													)}
-													{/* {<TooltipContent>W budowie...</TooltipContent>} */}
+													{(row.original as { treatmentDescription?: string })
+														.treatmentDescription && (
+														<TooltipContent>
+															{
+																(
+																	row.original as {
+																		treatmentDescription?: string;
+																	}
+																).treatmentDescription
+															}
+														</TooltipContent>
+													)}
 												</TableCell>
 											</TooltipTrigger>
 										</Tooltip>
