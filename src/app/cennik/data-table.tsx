@@ -17,9 +17,9 @@ import {
 } from '@/components/ui/table';
 import {
 	Tooltip,
-	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
+	TooltipContent,
 } from '@/components/ui/tooltip';
 
 interface DataTableProps<TData, TValue> {
@@ -74,14 +74,25 @@ export function DataTable<TData, TValue>({
 										<Tooltip>
 											<TooltipTrigger asChild>
 												<TableCell
-													className='even:text-nowrap even:text-right even:after:content-["zł"]'
+													className='even:text-nowrap even:text-right even:after:content-["\00a0zł"]'
 													key={cell.id}
 												>
 													{flexRender(
 														cell.column.columnDef.cell,
 														cell.getContext(),
 													)}
-													{<TooltipContent>W budowie...</TooltipContent>}
+													{(row.original as { treatmentDescription?: string })
+														.treatmentDescription && (
+														<TooltipContent>
+															{
+																(
+																	row.original as {
+																		treatmentDescription?: string;
+																	}
+																).treatmentDescription
+															}
+														</TooltipContent>
+													)}
 												</TableCell>
 											</TooltipTrigger>
 										</Tooltip>
