@@ -15,10 +15,10 @@ export default async function PriceListPage() {
 					{priceLists.map((treatment) => {
 						return (
 							<div
-								className="mb-12 w-full max-w-3xl px-8 "
+								className="mb-12 w-full max-w-3xl px-8"
 								key={treatment.treatmentTable[0].id}
 							>
-								<h2 className="mb-4 text-center text-2xl font-semibold">
+								<h2 className="mb-4 text-pretty text-center text-lg font-semibold md:text-2xl">
 									{treatment.title}
 								</h2>
 								<DataTable
